@@ -90,33 +90,37 @@
   </div>
 
   <!-- LOGIN / SESSION SWITCH MODAL -->
-  <div id="login-modal" class="fixed inset-0 z-[90] hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+  <div id="login-modal" class="fixed inset-0 z-[90] flex items-center justify-center bg-slate-950/95 backdrop-blur-md p-4">
     <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl animate-fade">
       <div class="flex items-center justify-between mb-5">
         <div class="flex items-center gap-3">
           <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQFBQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2wBDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/wAARCADcANwDASIAAhEBAxEB/8QAHQABAAIDAQEBAQAAAAAAAAAAAAUGBAcIAwECCf/EAFAQAAEDAwMCBAMEBwMGCgsBAAECAwQABREGEiEHMRNBUWEicYEIFDKRFRYjQqGxwVJiciSSldHT4Rc0RUZXgpOi0vAlNkNUc3WDlKOzwvH/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAgQBAwUGB//EAD0RAAEEAQIEAwYEBAUDBQAAAAEAAgMRBCExBRJBURNhcQYUIjKBkaHB0fAjQrHhFSRSVJIzNGJDcpPS8f/aAAwDAQACEQMRAD8A/n/SlKIlKUoiUpSiJSlKIlKVkfdFGH95CklO/YU+Y47/AC8qIselKyo8MON+K88hhknAUoElR9gP/wDKIsWlZr0JrwluxpKXktgFY2lKkjOM4PcZI/OsKiJSvaPFdlKIbTkJGVKJwlI9STwKkrfakzJTcSKxKuc5w4RHhtk7j6DAKlfQfWsEgCyih6VvjTv2bOo13Sh1y0W3TzB5CrmtPi4/wfG5n6Cqf1G0grQ94asrWqW7xdu8huG0ptqP7FZIyfM8DA7mqMXFMSabwIpA53Ya16kaD6qPO2+W9VrelSsq6OJYcioeU+FjC3XPiz/hz2Hv3Pt2qKq+pJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlZ9udiJS4iQ0kuKI2Or3FKfYpBH5849KIsClbF6faSjaz1G3Ypl7tNilydohuS4niMyFE8JCxnBPlngnjOeK3BdPsc63jAmHO0jcQP3C45GWf85KR/GqE/FMPGlEM8oY47Wav0vQ/RRL2g0SuWqmLTGkS1xWYsdUlx5TjZYT3cGASB7+Y9xV31l0V1jolpb9+0fc4cNIOZsIiVGA9StJUB9VCqzp65r0zcLfeYUlp1drmszUYO1eUqGQUn5DtkVb5+ZnPHR7dis3poq/LiGMUKB3sOjc24Oyh/rHYitp/Z5XDT1n6ambHZkRnbomMtp9AWglStoyk8cFYPzAq6dc+l0SAg610sz940feUpmPxWO8JTgyHW/RBz28jweMY1Lo6QrTeq9KXJKwtmFeI8pt5GcKAWhX0I2cjuKrYGdFnwCaI77jqD1B8woxyCRthXf7R0tyb1avUp3YXZUFsrKW0oBKUgdkgD9ytPR4qPDMiSSljOEpT+Jw+g9B6nyrbnXuRHT1UlvPlZjft2VeGATtDjqeM/Orn9nDpdE1HcVav1BGbciRADAhLH7PIJAcUD3SCFYB7kEn3of4gzh3DG5GQSeUAeZO33K1NlDIg5yxek/2bbnrViNd9Vqds+nThbEFobX5Cf7XP4En+0rKj5DzrrDTemtPaEg/cdN2qJbG9o3lhP7Vweq3D8avqcVruV1Ula51NI01oZxC0Reblf1p3sxE5xtaSeHHDyAT8OeeQCatbkmJYLeUeOpLKPickyndy3FealrPcn/cABxXzHjmdxLOcBlu5ebURjoOhd5npevkBS582RIfmNeSrvWbqGdF6TkvsObZ0nLTJB5Tx8Sh74wB7muD5ct3wHJDyyuZcSVrWTyEZ/qQfoketbY6/a1Tqm+MQoLi3IzCUtI4xvUTlRA+e0fStPXVYXOcSn8DWGk/JIx/TNfQvZPhYwMEOcKe/U/kFcwo+VnMdysKlKV6hXEpSsxm1y32w4ho7D+EqUE7vlk8/SiLDpX7dZcYcU26hSFp7pUMEV+KIlKUoiUpSiJSlKIlKUoiUpWXDhfe0PHxm21NgHCyRnJx38vLv60RfYkhKkiO+cNE5SvzaV6j29R/Wu5fs39Y5Gs7G9pm+vleorMgbXXFZVKjjACifNSeAT5gpPrXDZtE4cpiuuJ/tNDen8xkVYdOX+7aKu1s1DDLsadBcCDvGPFQQRgg9wU5SfpXD9oODR8WxHQu+YatPY/oditM8XiNrqv6Q3PUz2n2Vy0RZjzKQfFMAb3Up8z4fBWPUDJ9jWjtfdM9BdabU/edLOW+Pe0ZKpNuSGw4r+y8zxhXvhKvc146V6yaw1ukp0307ut+SO8uMlTLAPutQKR+dUPqlpnqHaJx1q5p62aOuDCSqQ+xe2PFf9ApAX8SvLABz5g14fg3Bs/Bfyl/gu6HmFO8iwmzfcbdlRjjlB7fvssDp31Mk9PUvaB1w0f0RlbTEkjclkKJCkH1bJJ90knIx21Pr7T36q3txuC9vt6nfFZKF7keqVDyIIOQa2EnS/ULrVZ135+wQo8AJ+O8zFiIw4pIxvTuPJ8iUgjjnFa2u+k75BYcjtLF0gMElT8ELdjtEejhSE+vY4r2uDDFDkuk5g2R3ztBsX38ifxViNvK/mJoncfmpLqNLXe7ta5Ty8uS0blr91KyT/wB6rFqTqVckxJOjNPvNxoMwsxXlpWE/CgbA0F8BKecqPnz5Zzi9P9DK6rTYxn3OPYdN2ZlIn3eWoYST+4hJI3LOOBngZJIrdrU/7LuhWBFTbXdTS0cKlTHHnlLPrhBQgfQVCeXGi5IpWOkcz+VrS6jdgnoPKyFINaAA7p0WFo9qHoDTqLNbtf2RJUrxH/0egPrdcIwTuAycdh7VWNWX5tXiPu3WdPDQ3Kckp2D/AKqcn+lSV61X9mvUSS2NJXSzOdkyrW862pPvtWVpP5VqfWVlt0WO47pHVxv9kB3fdpTZZmMD+8gkhQHqgn3AqljcOZLMZnlwcTrzMDb+oH5rR7uHO5ifuFW4Df6z6rjMPzXInjunD7bRdUlfcYSCM84HcY754roFH2abVNb8Sf1S066tWCS7DWHBn+8lXJ+ea5ZStSFbkqIV6g16CU7kZcXj/FXo54cggDHeGgd23+YXbxjisbUzSfQgfkV0BN+y603LdTD6j6XdiA/A48taFke6QD/OsZX2ZEJ79R9Ij5vL/wBVafQYExvDSpiHcHcFuhRHuAEjcPUcH519lTZDcdJQI6XGSG3QGGyDx8KwdvYgfnz51V914h/uB/wH6qwZsDpE7/kP/qttPfZzjwWHZS+oOlpCY6S6WGnllbgSM7RkdzjA+dWXpHH6bPdOpEy/2WBdNRS3nRKfnurP3docIbZQlQ2nGTu79gOBXOQvUtJz/k/1jN/+GsthxyWhTqIUoFXCzEVsQs/4cEA/L8qk/Dy5ITG+fUkagAGuo+q242XgQziR0Bc0A6F3Xodh9l9vqI2+UIu4xGJS245WrcoN8kJJ88f1qDrJmSi+UtpbDTLWQhseXqSfM+9Y1dMChS5T3Bzi4CgenZKUpWVFKUpREpSlESlKURK9Y764zqXEYyPIjII8wR6V5V9SkrUEpBKicAAZJoinrXIgwXhcFW6PPhpUEvQpS3EYz5JWhST5HnOfUHvW8NH9Y+lujS26/wBG2m7iAHEuPyPveMjIUkPg4B7g4NRn2Yundo171Yttv1EWjp2wx1XSe0tQ2PqSUhLZ9crUhJHmEkV11qHSNj+09r4GbaWI2ktOvoguzWRtfmPcERGlDgJSMFav3QQE8nI5HERBI9sMhdZ/0uc2h3NEeg6k7KxFhGZjpSaaOvn0A8/6DVaRuf2xnL+yuLatJXB5ppsnwQ8opbQBz8LWAAB8qjelWi43Wu/O6+1bbIUHSNrUURrejKETXU8kurJypCcjcc8nCRxurcP2ypcTpB08tWidHoiWaJqRZjmLb2ksbWEY371D4l7spBKic/FXMkvV+oddw7fovRSDD01aGkx/H/ClRHdajjlSlZVwCTngCuG/hrcVjvcG+E4kgvc4mh1dudTsOu6qDAe6RrMYcz3eppbw6r9d9I2siOlqNd344CWGXEf5KyAMDYyMA48sgAeVcwaw6nal6nShb2/FLDhwiO3wMegSPhSn5fUmrxK6BQbLZZdwvVykvSGmlOrIIQMgZ7cn8zXRH2KugNnchO6pv0RMiSUpcjxnhkAKztUoefA4Hqc+lY4Rj8OgA92PiSXQLr3qyfws0u6PZSTBAyOI6NqzRBO4FDpZJ3vTU9KXJ8folqNy0t/f5qIzCSVojrUSEk9zj1PHOKo150Vc7RcEQ0o+9LcH7MsAnefQDvnjtX9P/tVaUsdn0fCvEGKxDn/e0xiGUhAeQpKicgeY2g5964C1q4ouMrbUpDqE70rScKSQcgg+Rrpw5eXDlGHIII8gvaN9nuFcQ4CeI4jCx4Nam7I3vofUUtMmvoUUkEEgjzrdfVLS8bUvT+wdVLWwhpyXIVadQsNJCUouCE7kvgDsHm8KIwAFhWO9a+a09AfjNPtre2uJCh8Q4/hXoAbFr5m9hY4tO4Vdgw3LjMZjNlIcdVtBV2/hz+VScnTEiPHde8QkNpKzuYdbGB7qSBn61IK01DaRvU46Mc/iHH8KipEVBKgHHijyClZrKiotpxTLiVoUUrScgjyNT7iEvut7EhLUlst48hkb0j6KyPkmolcVCexNXPR+m5eq5Fvt1rh3C43BoeOIluY8VzY2tZUpWSAhIBHJodNSm6oIxkZ7VvDQV76eW/SN+jamssaXfFuq8F+SVkoj7AG0MgEBBzlRV3OR9abZOj+qNWPTUafgGWuC74Ulh11th+MrnCVoWoeh5GRwaytUdIuoOhrILterIWrYyoIL+9l8MlR4ztJKQT68Zrn5U2PKfdjMGuNaBwDu9d9VexC7Hf474edovcGv2FRbmSox3F58RbeVE91DJ2k+5TisCv266t9xTjiytxRyVKOSa/FdBUSlKUoiUpSiJSlKIlKUoiVZNI6duGpbxarLZ2fFvN5kphxU9tpUQM58u/fyAVVbron7Gv3IfaG0cuYUbWYsxxneM/tAw8Rj37/lWCaFoBa6Lu/S3Q/RTQk612uC1Lv1vjKem3tzIffkJTuwjn4W0qAwn2BOTyZrQt+t1h6W6NtlvmK/SUeEzOkpbxy/JR463FKHO7K0j5Co6322N1i1BqO/Xp+Q507s8sxwylSkLvUnuGirO4NJTtKgDk5Az3qxx+mtw6xoItzZsuj7Wr7s2i1qEUSVo+EtNAcJbRjapwhRyNqexI+d5LMnLD4pHEvkPNQF8rB8t13OwGpOq9/H7rh+GyT5IrvzeQLAB3rUHavouZPtIC8dTOoukraHX5Ml9hwBayVFIK/iP0CRXXnQjSGg+kPT8zpKoa7sgLS6leFuD+6hJ5JV5q88+QGK1lI0RpbprrOLHlWp6HMIWh17xS8/4fwk7VrUc7tw57VAao1RHt0d59xZDYJ2JJ+JXoPnVePjGTCIoImWGgj4hqXEnUizt+q7EHs/Hnc7ozyCQg23/SAPhB/E15Kn9VbwLvJh2Fkhv9LTG0OpSfwNrdA2/ln8q37adWT+nSH5ER4RJrYaaTbpEdW15kjIUe2ABjHnzXF9x1C4b9EvMpWfAmsvr9EpSsZHyArdd71au4NqkPyVvO48NSnFlRG0YAyfLGMe2Kxk4smMyAx/MLNjuav8qXo/8Obn5Tsci2ANBG+lmvvRvr2Xt1h6oXrqBKYN1kILMbPgx2U7W289zjzJ9TXOuppIemqSOzaNv1q4367BsLecOVH8KfWtZ3GQra66o5Uonn1Jrv8ADo5HO8SQ2T1Kse0L8fh+E3h+OA1rdSB0/wD0rbXSsovPQDrnZJKQpmPDg3Zgn/2brbxBI+YwK09pgl22fFyGnFJH8/61a7Bql/R3SfW8YNjdq1Ee3IWTgpQ26HVkeuQCn61rSDeJVqYXHDaS26d/PChn0NeubG5jRzddV8O4lC+Ke3D5gD9Cp66SvFWW0n4Enn3NQznc/Ktp6K6E626g2VN3tkKFFhLOG1XKc3GU6P7SUq5Kfep5X2S+o6if/Vz/AE0zVU8QxGktMrQR/wCQ/VVfdpz/ACH7FaEcqy6Wv1w0dmdb3Cv9JI+7usglKj8ZwPcHb/54raKvsidR1fvac/0yzWQPsr9QG24jBRZFKjrQ6si6slJAWskA55OCOPetcudgyNLHytIP/kP1VjF98xZmzwNIc3Y1/ZaZd1LNg3GXNEp0TpisuiPIUkJA7AqT3P8AKr50u6qG23OXFv8A48/TlyaMW5RH3VOAsqON6SexSSP4Edqhnfs+dSm1qH6qSiAT+F1pX5YVVn6Q6IsP663G2a8t77kaysJU5aA+WTIkqxgOLTztTnkA57c981sp/D5oH8zgQBqW0SOxFa6GqVzDdxGXJaxoc4uJ+E6B12TvQ11WuOouj29G6lkw4U1u42dw+LBntKCkPsq5TyOAodlDuCDVSrePWSy6Ytdwg/q/bk25uUrwpUNh1a2SD+FYCyopUPnz7c50gtOxak+hxVzAnGRjskBJ03Ion6KnxLAlwMl0EzaI6Xe/mvzSlKuKglKUoiUpSiJSlW7QGkRrS+wbOmRGiuy3FgyZSXFNsoQ0pxSiGwVHhB7AmiKo1ZdJ6kuGl7ta75aXfDulmeD7R7gpzyCPMckEeijV46pdHVdMPurcm62u5LlBwKEFqQhTBDKXUZ8UAEKStJ4z55wa1ZbhumNpIO1eUqx5Aggn6Dmm6A9Qu/LXdVWD7NGgnoLzKFTIcuZtSsbzJdfWAop74ScJz7Yrp/pXqaw6c0fCsciaxBNsbDSUyFbN6AOFAnvk5J9yfWv5pWLWupo3RG3szLJKe09bri9Ft12bTlIUooeWwod8BXxBX99Q+XQL+uv1lgxbj96U+l1lIQpSs7UgcJHsK8NxN+RwvNOXE2w415VTa9K1r6r6HwrhcXHMOOAu+IWT3sud976leH2qeocK7a4t9ygKLlvihTC1gYLjJTtUvHzOR/hrRU2RIuMhlpovzX31JaYbaCnFvKVwlKEjkk+QFZuuboLpencHc20A0PMH1/ia2h9jvSljfi6x1Rerg9FdiO/om1LaG5cRTjalOrQDnaoowgK8gVY71bxITPH482jtSem5uvJemzM08AhZiY7eYOpo6kECiTW4rcDt56aT1BoW9tpeiznY0J38LkdJDrifVKlA7QfUAn51BwtWybb/AOirm6WpUcBtL5PwupHAz7gedbl6j2tqw3pyNHkF9hSAtClfiAORg/lXP2vEpdkqdA+JBSCfpW7Af71/CmArpXQrfx6P/CMZnFMGQmQgc1k04b7dKOoqqU/IdVNVvDniFX727P8AGvJVkhMFMq+3ONFho5DDLgcec9gB2r1e6K3+06Ph6kuUadFgTmg6w8WilpYIJACuxJwfyrXireVQHXknL8dwh9B/ElBwEq9xnI+oru4EcIcaHNX0H915DiXFcljGy5GOCXix8djTuBrp2sealtT39WpJAUyz91tUFHhxmPJI9/VR7mo+FAMhCZZePibs9geRWNLHhRI7C1ftkZJQBwAeRn3qX0WbMxd239QPTE21shS2Iqfjf/u5PCR6nv6VbyJjRkcL9P6ALx075cvJ5nu+J25JAA/IAbAKTVqnUiBgX2eAOOFmvBWr9TD/AJduH/amt7Dq30QSAP8AgrtyseakO5P/AOSvn/C30N/6KLb/AJjv+0rie8w/7V3/ABb+q6RZn/7of/J/daEVrTUyf+XLgf8A6prKOtLvHixVv3q8LceSpR2SQkDCikdwfSt3Hqz0N/6KbcPo9/tKlLnqnQ8XS1u1FozQ9lhXW+zP0RD+/MF5mNg/G5scKgPxfXPoMVrkzYGUPdXAk0La0D73ppZWPDzyCfebrs8k/YLng6+uWOLte/8A7wf+GsFN/Uu4rnony2p7h+N6SoOhwf3sDPl6GtwdZuntp07bWbk1qNN5X4iWn82pqDvz3Wx4Z7A/urHI/Kqx0l6c27VWppcC7Xpdrt9ujGTKkRmg5IeJICGWQeEk5yVHgAHOeBV6GfDdCZ20G9TX9gq8sfFI8lkD+fxNC0Wb8iP3oqJcL44+8HpEsSn2+Wg2gpbQr+0cgEkfKq93rcXVXRNk0tJhC13C4S4Mk+Gtq4lC3mSTwtLiQMj1BA+ueNPuNqacUhQwpJII9xVnFmimiEkPyn6KrxKHLhyXMzr8TrZs/dfmlKVYVBKUpREpSlESt5dBtA27XdxuBuNzu1vTZ4TUmOq1vJaWHFubCdxBxwfLmtG1trpP1HZ6dSJciVEcfhXSK3GU6yoZZUhzfyPP5cd81Q4p7x7pJ7r89aK5w9sL8qNuQaYTr6LYfWjpradM6SF5iah1POnxpDbTQuU1LyEpWSFYG0EZA9a5zKEonTwlIGwOhIHl5fyrc/U7q7bdbWRNjtMeS6p15t5bzoCEoCCT2+vc4ArSi5KE3R578bKnF5x5pJOf4GqvAhme6/54nns770r3HosKLK5MEgsobGxfqu4Eqi2j7MPSKNGaC4k5ma88e6VvF07s+47fSudJd8m6PdkR2XnDbFuYDaD8TZPoPMfyq99Hupdmm9OZnSvVk9m3rYkm5adu0g4YQ4oHew4r9xC+SFHgKUc4wKo/6QhQuq2khd0pVbY94jOy0JIWFNpdTkccEYB/OovwHOzHOcLY+vuB/Vex4ZxiCD2dacc1kROI8zzHT1B2I8vRX/UfRu4acscGdqRM4SZe3xYzIKGIS1J3pZcd/fe2EKUkYCc45OaoWktVO9Pb5dbMHlxrdcHEPNL3HCVAEJyT7EiuqusGotJ6o6ZWq5HUUyZrNUol2G4+shoFSytJa/CkJyAlQ5Pqa5N1Tb49ziLLwwtsZQsdx7fKq0nKJnQPNsPbp/deijxJTw9maGf5mF7iS8Ec9aEa/wApG1UB+KuN0Nxu63JCN8l9XO5Rzn05rT+sGXIhDL60qlOqKlIT3T86wVu3W1R1iPc5LbKf3G3lJH5ZraMnpXG07oWz6vmXGPOkXVJX93MhCnUA/hUUhRVgkKBJAxgd810IceDEi5m24rj8V4tJ7Q/5ZsXhEDUl1gDXYAWdivV/qjdtV6Jh2BV4lLgsNtpMJ14qQ0UDA2p9OTj51rabE+5/e1OONqmTGwwxGQsKUEkgla8cJGBwDz+VRFwjtN3JIP7NtaSo7ePWsKO87DCllvKH21I+LzB4yD86u4UMcNvGt/h++i8pxXjL8kNgmYAWaEjQHpdVub37/ZWCw2xq+6keZN0tsFspJ+8XB8stEgD97B7444q4udO219tcaH/0uf8AZ1XenupYWn2r+Z7ESSzIgqaTHkMpX4qlKSkYJ5SUglWU8/DVr6T9TbHorT1xtj1itz90uDjrr1xnMod2soZJbYSFdgpzO7HJyn0rL5JBzFrL7a7/AKLzjgxzg4u3302/VYCumjZ/586G/wBLK/2VeaumCD/z60P/AKWP+zqU6M6+0/pW93Qy7RAMm7SG2m5stKFItsTK1PFsL43n4AM84GByqsTp51Hsemtc3i/SNPQJMiefCgofSkR4JccHiPBCsgEI3AeSdx9BWXPkBNM0rTXc9v7rXytq769undYR6VoPP696G/0sf9nWfq0t2jRulNJs3uyXAszn5jkq1Si+WVKxgEFKccc+5+Veth6gWZrqrddStabg3J5xK27VDfZCYwkKUEIfdbGU8IyvHbdg+VTuvenmttb6vu17s+i7m5a4qFNomMW8sok4SQFp4AX8R4KRykA1omIJYZgABrd7Gq+u5W+J5j5/CdqdNtxf4HRamuOo3rghv79cHZiWiChrZtCiO24k9vl/vr92HUU63y/vsKSlM1SPDdQtYR4qc8EHtn29vOpsdCOpKgojRd5wkZOY57VQJMZ6HIdjyGXGX2lFDjbiSlSFDggg8gj0qcZx5mGOMgjqBX5LYczLZO3Jc93ONibvT1Vtvuopd1ebk3NaAlohaWfFC1uKHbOOyfyqnLUVqUpRypRyTXylbo42xtDWCgtOVlzZcpmndzOPVKUpU1XSlKURKUpRErMtzmHHGDktvp2EA457g/QisOsiD/xtr50RWDVFvXZUREKkrkOXGFGlKWrjaFthezHngnv7VV6u/UU5Vp7/AOTQf/0JqkVpx3F0bSVtn/6hUlFeT9zR4yPEaYkIUpP905yAfQ4rdXX/AKNW3p9fkSdMredsV0ZbudscKtwXGcAUkA+ZTkj6e9aLiSAw4oLBUy4Nq0juR7e4OCPlW1EdXbk303a0XfYiLtbIm9yx3ArKH4JP4mwSDuaJPKDyD2OOK2OaTsaKt8Omx43ubkttrgRfVp6EfvYqc0xrC3ashtMTJTcS8pSErS6dqHyP3kn1PpWVdNB3CYCpEtHhd8KUMfnWX1P6K6f0vpXR79tnCTcZtnjTZqUJVubccbS4SSeFA+JxjsE1o+Zb3Ya2G1S3Cw44EHKiAB61sDsCSQnIhPidweW/MiiNe4q19Id7Q57OHRe/wiVrmghwcWmtviBGuvXY7+amNRphW1l+EHRInKOwhByEc89vOsywdRP0XbE2m8W375GaG1BCtjiU+hyOR6Vt7qHoHQemWLIrRSJUhIt7X39+Yk7lSOdxGe3l249K0DqCMH5afATuWpSgAPMCtIlME5h5OWuhF/1XIzouJcMa3iUbvDc4VyV/Lex5t9fL0WTeIa75JM2LDMOGR+zbUverHqcVEmLMQy+gIK2YpDilkfCjy8/UkD3qWt+spkGBGixokRSI6FF0vthzxDng5PIwMDANftF0Oq3mo92vMSz2/wAQZCYqy0n++UtpJUR75NWA1g+Iu+gC8xmS4crfFaXGR2p0ABPXyAB8un1W4unsG6v9MHr5+s2mYLranlRre7p2JKcKEEAuPOKbJbQpaghJOeazumr+o9eabuN8uF/0xam2n1RYkVGlYL78pxDfiOK2BnIbQkpyrnv7Vr+36J0y3AnmH1QhqiqbSiQtFjuCkoTuChlXhfDykH6Vm6TsdjsMuRJsnVOCt0RnmXNtjnuBDbidqzjwsDjz9qqOjeQ+pCL9Ph9NOvna5TXN+G23Xrr+/JW7pfL1R1ClXr75etL2y3WtaGA63piA87MfcKg20y2GQVEhClE+QHvXjoe56k1Zq292uRqLSltsllbU7JuqtNQDvG8IbQ234IKnFqUAE+XPpVU0hp+wWS+wp1j6pwV3CK547KEWS4OfEEkbtoa5wCaxrXpPS7V3acj9T7dJlmQl0xlWSesPLSrcApAa+LnPFZcx5LjzkWK6aee2/rp5KPMK+Xr5/b96q5W2564X1HvVhg6/j2O3WxpcmfdEW9uCmO2jCVJUy2hJ8TeQgIHJUfmaq2ruoOtLFqK4W97XN+npht7lrdSqM6FEgbShWSnuDXkm2aMVqa4TtQdR3lOPyi9JRDsT5D6t+8gpcU3gbvIjir2vTfSXqe7dodm1VfFa1uyy+i43gIQy67ncUFtKRgKPnkkY8/Pm5L8KIXkM5q3cWE/UkNr16Lo44zHk+7uryDq+gF2tSM9YtVtyG3P1ivY2qByZe7H028/Kr1qaZauucmxKRHZga4cStM2apxLMOUyhPDq1nJCxjbgJJOcHyrTl+0peNNX6VY7lBeYucZW1bOMn5jHdJHII4Ir4x98tKEqeZfQhKsodaVgoJ7jPI5x2PpW/3CAls+OA1w2I2NjrW46qAz5H/wALLJc2xd7j0J2P7K875aFWeY9HUrJacWysZB2rSeRkcEcgg+eai6ypkz70UpSkpQklXxK3KUo91E+ZOB+VYtdAXWqoP5eY8m3RKUpWVFKUpREpSlESsmAN01gDuVAD61jV9BKSCCQRyCKIrprr/KoenJjQ3MKtUZvd/ebSW1D6KQR9R61Squti1LHTDVCnR2pkJai4qK454S21kAKWy5ggbsDKVApOBwcDEuyrRMNwSU2i9SHE8+C9Kjst593ACcfIA+4qq1zoW8nKTW1Ky9rZTzhwF91gaP0rERBfv9+S8m1RlhpDTWA7KfIylhvIICsYUpRB2JI4KlJFfdS6pi3ZlVubgWW1x1KBKYkQuupIPG+QslavfBIrB1VrN+9OMpHgMtRkFqLFiApYiIJyoIzypSjkqWck57nvVPpHE57vEl36C9B+p8/ssPe1g5I/qe/6D9ny6K0/1etdy0lZ9OatSuLd7GyIUebt3NyYoJLaVkdlIyUhXIUnHYjmk9Qv1ZXBJtVwjyJDigUoZO4g59vLBrXcGesLZjvJbfjbgNjoztBPOD3H0Nbb6N2TSk2watVe7fJk6gYCEW1bTgCGFZ+JS0nuMA/lXXdkmWDwfCDnDY/zUNa8/qvWcH4rmcQgbwPla4GwCRZaOtajbdRunuqv6Pt7ds1FAekJaSEofbI37fIKB78eeah9T6htt1QtWnrTIYKkFLsh3HKfRIHb86x9R2t2MZLLjRCk52kjv8qv1tW3rbp7ZYcBEVMuztqaWhtpKHVEnJK1DlWfInsOKg3Mys2Ixhgc5o7DmodAd12GN4lludwmaaw1pIsDnNaUCdb/ABpaZtrH3tD8ZC0CQ6EhtKzjeQfwg+vapy3Xi123Sd0iOR1Lvsl0R/2rYLbcfaSSn0c8QJ58gD61j6m0/L0/KjuvxHGA4SrkYBIPlWZZtXzdMXRd7tgivoefC3GJsZDqdwO4Agg8d+QRVfl0+IUexXg8rGlxXOheKc3Q9LB1Vo0p1suWm+n8vSDKGWYJbdcQGm05kvurSFKeyDuSGgUgcYwKyelHWA6EsNwsaXlW+NMU9LkSo7KVvSnEthLDBJB2thW8n3VW3IH2tJ0mK047060pvUMnZEZwflk5H1rwvf2oJ8+3PxU6K0nDbdQULccgxiNpGD3z/AE+lVnY0Lg4OYDzb6DX17/VUhK8VROm2u3otT9G+rg6fz7kjY1DN7fbE25IbBeYip3KW01x8JWopz/hA96x+nHVt3R+trrfg2y3PvCkx1XAoBVDZW6kvuNjHCygFOcfvH1qH6d9Q2unt0ulwj2eBNmSE+HHclsJdTHTuJVtSoEAkYGcZAz61tXUH2gIK7G2/bm4D1xWpO6O9bI4KEnfnOGgMgJTnCv3hjOTtkceJxJLQSRR8x29PJY8R9Vfn9VVrFr+4Teoup77YbYmfeJyXWbfMkxfGWw0CTvCQggyFNpS2lW3us9jzVc13E1Tpy6IuF+st3tiro+uUyi5NFp1bYO1HO1PxJGeQB64wanm+tnU22R2jH1bNiuSnPghsoShCUnnyxjAxxjgEe9WjTPWhjWkKdpbqPIVebFMWMTSgIfhr7JeR34Hr9CMGqM82Rjt+CEFg3AOteTeUDTtfor8EMc7tJSJDtYoX62qn+uw6hah0nG1cPvVnhN4kORyGZU1lKifCW5g4IwR6ck+dY3UtGnGZbUrTtnYtbK3lNqisPuOoWyT8KVFZOVAfvDGe+M1hdRenU7pjcmGnnlTrBLJftl3i8BxPn7BXbKSfcHFUx66oJS6Xn5UhH4C6kJQg+uATk/l9azjRseI5MV38PoBt+/LorxzoGY00GXBc7j853G3Tv51reqipDYZfdbSSQhRSCfPBrzock57mldJcBKUpREpSlESlKURKUpREpSlESlBjIzwK39D6L6U1PaoT+i9fWl2cpoePGu4DTnieeB+6PLGD27miLQSUqUcJBJ9BVy05MvUGci52pt1M/G11txs+HIHz7ZPmOOeRVxu32f+pcBJU1EanMjsuBLQpJ+QyP5VRrtoDV1qUU3GzT2z2+Mbh+YJqTHujcHNNELZDM+F4lidThqCNwro91Ak6gfFmGnIjF3k/sgt57aEq+o/rVcmaG1BptwyGFSG30AlS4+U/kR5VWP1cvTZ3foqeNvO4ML4+oFWJrXOtYMUxlSpZb27MPsbzjGMZUnNXjksyPiyHEOGxaG/iNPva9KzjkOcC7i5e54+VzaFfT4dfO1P/qYNTdP2NSvahlTbt462VQXEqUWkJH49x45PGO/GaoTEFcmC5DbKBLaeKy0tQSVpxj4c9yOeO/NSWl9a3XSTrwbbS9FfO52M+k7FH1HoazrtqzTF4WqS9pdxExf4i1NKUE+421BscL2+IZPi6g39wQD+KjM/h2VjMka/klApwdzfF5ggO19fxVTkSW1M+EIrbboOFLA9Kwqy5b7Up/LMZEdryQ2Sr+JOTUlblQo/xGyvz3ccB5xSW8/4UAE/51UzvovMuABoG1FQ4Mm4PpYisOPOq7JQnJqwJtUfTy2zNWmRcs/DEZO7Yryz7/8AkZ8vWRctTvxVxo0J+FBcPxMQopZQr5kDKv8ArE1DJ0/dFEkRXARz8RCT/E1hYWRdpD7Djv3gH784ChfBAYT5oHv6n59yTUM06thxLjailaTkEVYINivkhWGFuAg4ISsqx9E5q76X6fW+XNUvWmoIVntzfLinGgHnP7qOys+5B+Roil+mvU+A7ZpGktWxvv8ApOWMOMnlyEryeaPcAHn29xUTqz7P2qrZcVr07AkaisLyfFiXCCjfvbPYKSOUrHmPyrXl+bt1q1FNRYLg9LtrDxEWW434a3E+RKf/ADn0qZtvUm+WmMiPCuM+Kyk5DcaUUIB9k4OK5T8KaGUy4ZA5vmabonuK2Pfv11XVblwZEYZmXbdnCia7G6vyO4U1ojpq7f7hd4cqZbbSuzslc166lRIczjwGmk8rcz5ex7YqralsibXcJsTcwp6KQrxI27wnkH94BXKSMjIPv6c5tq1HNZmSZcV8uuzFFx9t50Bwr7lWTgKzk+9Rl2mrcckPSHEKmPjZsbWF7E5ycqHGTjt86us8bxDzVy1+KTN4cMFpic4zXrdctfuuqg6UpVhcpKUpREpSlESlTUPStzntJdZiurQSRlLaiAR5cCsr9R7z/wC5v/8AYr/1VqM0YNFw+6us4bmSND2QuIPUNJH9FW6VYJOjbtG2hcR7cRux4Sjx9Af44rFRpu4udo7nfybUf5CsiVhFhw+6g/AymO5XxOB7EH9FE0qVe09PYW2hbKg45+FBSoKVzjgEAnv5VKo6f3pxrxBDdx6EAH8iQf4Vh08bBbnAfVTh4bmTkthhc4jemk160FDwdQ3e1/8AEbpOi/8AwJC0fyNSCde6mSrd+nbgs9/2j5X/ADzXhN0tcLehKpLRZ3HakOpKNxxnAz8qw5dnlwmEPPNKS2sZBKSMj6jnuO3rUw9rtja0yYs8RIkYQRvYIr1V0g9cNcQG9iLulxOMftYrSiPrtzUVP6l6kuTxdkT8rJyShAT/ACqLiaVuc1lDrMZ1aFHAKG1KGfMZAxQ6almSIzY3vBW1SEjKgeOMAn19seeKx4jLIsaKXueQGtd4bqdtodb2rupJrqPf2UhKZLeB/aaSc/nWe11d1IzjaYHHrCbP9Kj5XT+8xWVOGK6UpGTgBWP80k/wqrutKZWUrGDWI5WSC2OB9FnKwcnDcG5MbmE/6gR/VXtzrBqV3O82859IbY/kK84fVvUsCQl+O7EQ4k5z91Qf5iqhb7c9cnvCZGVkgBIBJJPkAKz16UuraHFriPJbbBUpZaWAAPPJHapF7WmiVCPGmlaXxsJA6gEq0aj61as1P4X3uREb8IYT4EVCT+ZBqunW+oMEJujyM99mE/yFR8Gyy7i640w0pbjecpSkqPHfsKz2tHXZwKUYjyEJ5KlNqAA9SSAKw6RjdHEBSiw8iYc0UbnDyBP9FGvXe4SFKU7NkrKjk7nVc/xrDKiSSSST5mpmHpmbPleBGT4ueQUDOR/Tse5H1rMuOhrrbmFPOsLDaeSogbR8yCcfXisOmja7kLhfa1OPh2XLEZ44nFg3IaSB6mqVZpUxB03OuLK1x21OLR+JCEklPzx8qym9FXhxJIiP/wDYr/1UdLG00XAfVYiwMqVodHE5wO1NJ/JV2lZMuC/BcLb6ClQODkEYPpg9q/MWG9NdDbKCpRwOPc4FTsVarcjg7lrVeFKso0NePBW6YjwSgZJ8MjA+RwfyBquOILa1IVjIOOKiyRj/AJSCt0+JkY1ePGW3tYIv0tfmlKVNV0r6Dgg+lfKURXPTd9u0+bBt0aW6w1vCQlCuBlWTxj0yec1b+o2oJFsREiQ3lsuPZWpSDg4zgDP5n6VXOl9sEi6LmKBxHSVA+5+Ef/1+VeWvHTcdYiLvASjw2Qo9hwP6qNcWSOOTPDaFNBJ06lfSMTKzMT2VfN4juaaQMb8R0a3trpsRor/Y1SoWj230h2TLUyp5KclSlKUSUj37iqVcNQ6xhNlckSGm+4UpkJ/jt4q96hiXMWhqJYiG3kqS3uCwkpQBjgn6VSXNP6yTEd+8T9scghaXpeEkeecnGD86pYTonF0knJ8R2O69N7SxZ0LIsPFE48KMDmj+Qmup0J89dPupzQ9s3xjfLgsuSFlRQtfJQBwpWTzk4I+Q96od81rcrhNcUmQ401n4G0LKQkeQ4I/M1sTTEgXfRi4MdaUymWVxiM9iQdp+RB7/ADrXCtCX8vYNueAJ7/CQP41bxHRnIlfkEAg0L6DyXA49Dls4TgwcKa9zHt5nlgJ5nmr5iOoN7+nRTXTtD91v/wB6kkuiOgubl8kKxtTyefM/l7VOa8lNXexOOsHcYUtUdznkHBH5E4rO0Va/1esM2S640onKypCgoAIB4yOO+e351XtFAX6BfbW8rDkna7uUM8g8/wBPzrVI8PyHZI2j5R9Oqu4uNJj8Jg4M8fxMsSON72ACz70N1YPvi7PoWMsKLUiWkJSoD4kqcJOQPMgHj6V9nvt6G0whxtpIuL4ShSyAcubeSceQAOB/vqN6h3ZuJPs8RJ/Zx1h9aB5cjb/AK/OsvqJCfvlihybelUhlKy6fDGSUqHBx5/760MbzGMyaNkcSfyH77rqZMxhbmMwzzS4kTI2VqRY+NwHfoT0pVvQ9+nztVNeK884H9wWConI2k8/IgHyxWH1IhtRb64W0hAcCXNo7fEOf4gn61Y+ntgVZY8m8XJP3YbNqPFG3anupR/IAfWqRq+8i93qRIRkNZ2oB7hIGBn38/rXShIfnOdF8rW0a2teN4k1+N7MxRZpJlkkL2g/MG1ROutE6+d2pPpxAVLvzK8fAz+1UfLCe3/eKa2TdJibxD1DbGDiREa25z3JRuH8Riq30vZbjW2fOcWkJSAk47hIBUSfzH5ViaHvJlauuG4nE4LUUn1B3D+GRVPNaZp5JB/6YFet3+q9B7NzR8O4Zh4bz/wB49/N/7S0sH48p+6l9OsMaS0y7d5yT94eTvwr8ZB5Sj5k8n5+1SF/uz7btmiJZS5LlftPCIBQF4wkqB4ISo7sHg7OeOKgdRTTf9Z26zskmPFcHiDyKhyr8gMfnXleb4yz1IiuvOFLEXDKieySQcn6FX8DUGROfKJ3C3kF1dujQrOTmwQYL+GQu5cdr44L2sk3K4n007bnqpbWV8Gk7c1EgEpkySpanScrPPKyT3USe/wA/aojpndZc64Tm33FutLaK1BRKhnIGTn1BI96/fU+zzZr8KVHYceZS34Z8NO7BznsPI571J6RtyNHaffnXIFp57Cigj4sD8KAP7RJJx7+1LjGBpq9/3u/yWS3Md7U/FceNji+zAzl+3xE/uliaYtv3fW1yS0NrEQOAA+QJwkD6fyr7Kvlwe6gNxYjq1MIWGVtgnbtGN5I+p58sCpLQ6i7Aul5eBLkx9bhwP3UjsPqSPpXhoi8JvxuhTCYhyshRkR0DKt2e+c5IIz6GoyvPiSyPbzcrQ36nr97W3Bx2e64WJBKYjNK+YAXZa2yGjYC21voorqoqJmKkYMwoO7Hfbkbc/wDex7Zry0PaU2a3u6gmgeA2hRbTjKlK7ZHp5gfM+Vels08xdLggXdudKmPl1X3lDyfDUhCyjcR+JPKcAeeOKz9S6msURwWiTBdfZhFICEObEggcDvk4/nVi3NjbhMBPc+Xlr1XKEcE2bN7S5LmRgmowb/6gFAuppuqs1YJ6qa0heXtQW6U9I/H46kjaMBKSAQB8s960hcciW4D5YH5DH9K3boq52u4xJAtcNcVptwb0qVnKiO+cnyFaUurRYuMlsnJQ4pJx7EitvDAGzzNDeXbRUfbVzpeFcOmfKJTTwXi6JsdwD07DZYdKUrtL5qlKUoinLdqibaoS40RxTIcxuUg4Jx257+Z4HrUXJmPS5KpDyyt1ZypSjkk+9Y9KiGNBLgNSt78maSNsT3ktbsLND0GwU8rWV6MdLAuMkISMDDh7fPv/ABqLduMp/PiPLXnk7lE5/OsWlYbGxvygBSmzMicATSOdXck/1Wbb7vMtbvixZDjTn9pCsH/fUjP1jeLi14b8x1SMY25wD8wMZ+tQNKwYmOdzFovusx52TFEYI5XBh3AJAP02Ui7e5r0RqKp9fgNDCUbjtHOeB2ryt90l2t/xoj7jLnbchWDisOlS5G1VaLX7xLziTnPMNjZsVtR6Usy5XSVdpSpMt1TjysAqV34GBWZa9UXS0IKIkt1tB52g5T+RyKh6VgxsLeQgV2U2ZmRHKchkjg8/zAm9fPdStx1HcbqR96lOuY7BSsgfIdhUVSlZa1rRTRQWuaaSd5klcXOPUmz9ys6FdpUBDqGXVJS6gtqAOMpPcH2r5bbpItc5EyOra+gkpUAOCR7/ADrCpQtabsboyeVhaWuILdRrsd9O2vZSES8y4Ml2Qw6tD7gKStKviwe/Pv61huvuPOl1xZU4TkqJySa86VkNANgLDpXuaGOcSBrV6WVO2/WF4trAZjzXUtAYCc5A+WQcfSsSZfZ1weDsmQ46sea1EnH9PpUbSoCJjXcwaL9Fukz8qSMQySuLBsCSQPpdKae1Zd3UoR9+eQhsYShtWxKR7BOBVh6d6mjWaTJZmK2NSdp8TGdqhnv545qiUrXLixyxmIigeyuYHG8zCzI81ry57NuYkjUURv1Gi2ndp9njBK4+oZWxoLS2zDSEr2qUVFBc4+HcSRntmtcXKU1LlLcZbLbZPCSsqx9TyfXPqaxCSe5Jr5WYYPC3cSfP+yxxLipzjTYmxtsmm3Vnf5ia9BQ8lMae1FL07L+8RiDkbVIUMpUPcVGSXzJfcdV3WSTXlStoY0OLwNSqLsmZ8TYHOJY0kgdATV160lKUqS0JSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoi//Z" alt="TECNO MORA Logo" class="w-12 h-12 rounded-xl object-cover border border-rose-500/40 shadow-lg shadow-rose-500/20" />
           <div>
-            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Autenticación TECNOMORA ERP</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400">Control de acceso por rol y sucursal en Backend</p>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">Iniciar Sesión • TECNOMORA ERP</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Acceso seguro por rol y sucursal • San Gil, Santander</p>
           </div>
         </div>
-        <button type="button" onclick="closeModal('login-modal')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
       </div>
       <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <select id="login-user-select" class="hidden"></select>
+        <div id="login-error-box" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-xs text-rose-400 font-semibold"></div>
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Seleccionar Cuenta de Usuario</label>
-          <select id="login-user-select" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Usuario o Correo Electrónico *</label>
+          <input type="text" id="login-username-input" required placeholder="Ej: stiven, sneider, jesus o tu usuario" autocomplete="username" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
         </div>
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Contraseña / PIN de Seguridad</label>
-          <input type="password" id="login-password" value="tecnomora2026" required class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-          <p class="text-[11px] text-slate-400 mt-1">Clave predeterminada para pruebas de roles: <span class="font-mono text-indigo-400">tecnomora2026</span></p>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Contraseña de Acceso *</label>
+          <div class="relative">
+            <input type="password" id="login-password" required placeholder="Ingresa tu contraseña" autocomplete="current-password" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 pr-16 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            <button type="button" onclick="toggleLoginPasswordVisibility()" class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 text-[11px] font-semibold text-slate-400 hover:text-indigo-400">
+              Ver
+            </button>
+          </div>
         </div>
-        <div class="pt-2 flex justify-end gap-2">
-          <button type="button" onclick="closeModal('login-modal')" class="px-4 py-2 rounded-xl text-sm font-medium border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Cancelar</button>
-          <button type="submit" class="px-5 py-2 rounded-xl text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/25">Iniciar Sesión Segura</button>
+        <div class="pt-2">
+          <button type="submit" class="w-full py-2.5 rounded-xl text-sm font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/25 transition">
+            Ingresar al Sistema
+          </button>
         </div>
       </form>
     </div>
@@ -332,8 +336,8 @@
             <p id="sidebar-user-name" class="text-xs font-semibold text-white truncate">Stiven Mora</p>
             <p id="sidebar-user-role" class="text-[10px] font-mono text-indigo-400 uppercase tracking-wider mt-0.5">SUPERADMINISTRADOR</p>
           </div>
-          <button type="button" onclick="openLoginModal()" title="Cambiar de Usuario / Rol" class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 shrink-0">
-            Cambiar Rol
+          <button type="button" onclick="logoutCurrentUser()" title="Cerrar Sesión Actual" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-500/15 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/30 shrink-0 transition">
+            Cerrar Sesión
           </button>
         </div>
       </div>
@@ -381,20 +385,20 @@
               </select>
             </div>
 
-            <!-- Role Switcher for Instant Testing -->
-            <div class="flex items-center gap-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl px-2.5 py-1.5">
-              <i data-lucide="shield-check" class="w-4 h-4 text-indigo-500 shrink-0"></i>
-              <select id="quick-role-switcher" onchange="handleQuickRoleSwitch(this.value)" aria-label="Simulador de Rol" class="bg-transparent text-xs font-semibold text-indigo-600 dark:text-indigo-300 focus:outline-none">
-                <option value="USR-01">Rol: SUPERADMIN (Stiven Mora - Tecnomora)</option>
-                <option value="USR-02">Rol: ADMIN SEDE 2 (Sneider Mora - Tecnomora II)</option>
-                <option value="USR-05">Rol: ADMIN SEDE 3 (Jesús Mora - L&M Tech)</option>
-                <option value="USR-03">Rol: VENDEDOR (Asesor Comercial)</option>
-                <option value="USR-04">Rol: CONSULTA (Solo Lectura)</option>
+            <!-- Active Authenticated User Badge & Logout -->
+            <div class="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 rounded-xl px-3 py-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+              <span id="topbar-active-user-badge" class="text-xs font-bold text-indigo-600 dark:text-indigo-300">Sin Sesión</span>
+              <button type="button" onclick="logoutCurrentUser()" class="ml-1 px-2.5 py-0.5 rounded-lg bg-rose-500/20 hover:bg-rose-600 text-rose-400 hover:text-white text-[11px] font-bold transition" title="Cerrar Sesión">
+                Salir
+              </button>
+              <select id="quick-role-switcher" onchange="handleQuickRoleSwitch(this.value)" aria-label="Simulador de Rol" class="hidden">
+                <option value="USR-01">USR-01</option>
               </select>
             </div>
 
             <!-- Quick Action Buttons -->
-            <button type="button" onclick="navigateTo('registrar-iphone')" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 transition">
+            <button type="button" id="topbar-btn-reg-iphone" onclick="navigateTo('registrar-iphone')" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white border border-slate-700 transition">
               <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-cyan-400"></i> + iPhone
             </button>
             <button type="button" onclick="navigateTo('ventas')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm shadow-indigo-500/30 transition">
@@ -1966,46 +1970,77 @@
         <section id="view-usuarios" class="module-view hidden space-y-6 animate-fade">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
-              <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-4">Crear / Administrar Usuario</h3>
+              <div class="flex items-center justify-between mb-4">
+                <h3 id="usr-form-title" class="font-bold text-sm text-slate-900 dark:text-white">Crear / Editar Usuario de Acceso</h3>
+                <button type="button" onclick="resetUserForm()" class="text-[11px] text-indigo-400 hover:underline">Limpiar</button>
+              </div>
               <form id="user-form" onsubmit="handleUserSubmit(event)" class="space-y-3 text-xs">
                 <input type="hidden" id="usr-id" />
                 <div>
                   <label class="block font-semibold text-slate-500 mb-1">Nombre Completo *</label>
-                  <input type="text" id="usr-name" required class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2" />
+                  <input type="text" id="usr-name" required placeholder="Ej: Carlos Andrés Gómez" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2" />
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div>
+                    <label class="block font-semibold text-slate-500 mb-1">Usuario de Login *</label>
+                    <input type="text" id="usr-username" required placeholder="Ej: carlos" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-mono lowercase" />
+                  </div>
+                  <div>
+                    <label class="block font-semibold text-slate-500 mb-1">Contraseña / Clave *</label>
+                    <input type="text" id="usr-password" required placeholder="Clave de acceso" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-mono" />
+                  </div>
                 </div>
                 <div>
-                  <label class="block font-semibold text-slate-500 mb-1">Correo / Usuario *</label>
-                  <input type="email" id="usr-email" required class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2" />
+                  <label class="block font-semibold text-slate-500 mb-1">Correo Electrónico *</label>
+                  <input type="email" id="usr-email" required placeholder="vendedor@tecnomora.co" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2" />
                 </div>
                 <div>
                   <label class="block font-semibold text-slate-500 mb-1">Rol de Seguridad *</label>
                   <select id="usr-role" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-semibold">
-                    <option value="SUPERADMINISTRADOR">SUPERADMINISTRADOR (Control Total)</option>
-                    <option value="ADMINISTRADOR DE SUCURSAL">ADMINISTRADOR DE SUCURSAL</option>
-                    <option value="VENDEDOR">VENDEDOR</option>
+                    <option value="VENDEDOR">VENDEDOR (Solo Ventas, Stock, Clientes y Garantías)</option>
+                    <option value="ADMINISTRADOR DE SUCURSAL">ADMINISTRADOR DE SUCURSAL (Gestión de su Sede)</option>
+                    <option value="SUPERADMINISTRADOR">SUPERADMINISTRADOR (Control Total 3 Sedes)</option>
                     <option value="CONSULTA">CONSULTA (Solo Lectura)</option>
                   </select>
                 </div>
-                <div>
-                  <label class="block font-semibold text-slate-500 mb-1">Sucursal Asignada *</label>
-                  <select id="usr-branch" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2"></select>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div>
+                    <label class="block font-semibold text-slate-500 mb-1">Sucursal Asignada *</label>
+                    <select id="usr-branch" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2"></select>
+                  </div>
+                  <div>
+                    <label class="block font-semibold text-slate-500 mb-1">Estado de Cuenta</label>
+                    <select id="usr-status" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-semibold">
+                      <option value="Activo">Activo (Permitir Login)</option>
+                      <option value="Bloqueado">Bloqueado (Sin Acceso)</option>
+                    </select>
+                  </div>
                 </div>
-                <button type="submit" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold">Guardar Usuario</button>
+                <div class="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-[11px] text-slate-400">
+                  💡 Si creas un usuario con rol <strong class="text-indigo-400">VENDEDOR</strong>, se agregará también al módulo de Vendedores automáticamente para facturar y liquidar comisiones.
+                </div>
+                <button type="submit" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow">Guardar Usuario y Sincronizar</button>
               </form>
             </div>
 
             <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
-              <h3 class="font-bold text-sm text-slate-900 dark:text-white">Usuarios Activos y Matriz de Permisos por Rol</h3>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-bold text-sm text-slate-900 dark:text-white">Cuentas de Usuario y Credenciales de Acceso</h3>
+                  <p class="text-xs text-slate-500">Solo el SUPERADMINISTRADOR puede ver, crear o modificar claves y permisos de acceso.</p>
+                </div>
+              </div>
               <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-xs">
                   <thead>
                     <tr class="border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold uppercase text-slate-500">
-                      <th class="py-2.5 px-3">Usuario</th>
+                      <th class="py-2.5 px-3">Nombre y Correo</th>
+                      <th class="py-2.5 px-3">Usuario / Clave</th>
                       <th class="py-2.5 px-3">Rol</th>
                       <th class="py-2.5 px-3">Sucursal</th>
-                      <th class="py-2.5 px-3">Permisos Verificados en Motor</th>
+                      <th class="py-2.5 px-3">Alcance de Permisos</th>
                       <th class="py-2.5 px-3">Estado</th>
-                      <th class="py-2.5 px-3 text-right">Probar Sesión</th>
+                      <th class="py-2.5 px-3 text-right">Acciones</th>
                     </tr>
                   </thead>
                   <tbody id="users-table-body" class="divide-y divide-slate-200 dark:divide-slate-800"></tbody>
@@ -2074,7 +2109,10 @@
 
               <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <button type="button" onclick="testAndSaveSupabaseConfig()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow">
-                  <i data-lucide="cloud"></i> Conectar y Sincronizar en la Nube
+                  <i data-lucide="cloud"></i> Conectar y Forzar Sincronización Ahora
+                </button>
+                <button type="button" onclick="checkSupabaseHealth()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow">
+                  🔍 Diagnosticar Conexión
                 </button>
                 <button type="button" onclick="disconnectSupabaseConfig()" class="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-xs text-slate-400 hover:text-rose-400">
                   Desconectar
@@ -2244,11 +2282,9 @@
         }
       ],
       users: [
-        { id: 'USR-01', name: 'Stiven Mora', email: 'stivenmora1005162@gmail.com', role: 'SUPERADMINISTRADOR', branchId: 'SUC-01', status: 'Activo' },
-        { id: 'USR-02', name: 'Sneider Mora', email: 'jesussneider2244@gmail.com', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-02', status: 'Activo' },
-        { id: 'USR-05', name: 'Jesús Mora', email: 'lymtechnology2025@gmail.com', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-03', status: 'Activo' },
-        { id: 'USR-03', name: 'Andrés Felipe Silva', email: 'ventas@tecnomora.co', role: 'VENDEDOR', branchId: 'SUC-01', status: 'Activo' },
-        { id: 'USR-04', name: 'Auditoría Externa', email: 'auditoria@tecnomora.co', role: 'CONSULTA', branchId: 'SUC-01', status: 'Activo' }
+        { id: 'USR-01', name: 'Stiven Mora', username: 'stiven', email: 'stivenmora1005162@gmail.com', password: 'Stiven2026*', role: 'SUPERADMINISTRADOR', branchId: 'SUC-01', status: 'Activo' },
+        { id: 'USR-02', name: 'Sneider Mora', username: 'sneider', email: 'jesussneider2244@gmail.com', password: 'Sneider2026*', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-02', status: 'Activo' },
+        { id: 'USR-05', name: 'Jesús Mora', username: 'jesus', email: 'lymtechnology2025@gmail.com', password: 'Jesus2026*', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-03', status: 'Activo' }
       ],
       paymentMethods: [
         { id: 'PM-01', name: 'Efectivo', category: 'Efectivo', accounts: { 'SUC-01': 'Caja Principal TECNOMORA (Calle 12 #9-11)', 'SUC-02': 'Caja TECNOMORA II (Calle 13 #10-47)', 'SUC-03': 'Caja L&M TECHNOLOGY (Calle 10 #10-61)' }, status: 'Activo' },
@@ -2322,6 +2358,35 @@
       }
     }
 
+    async function checkSupabaseHealth() {
+      const url = document.getElementById('cfg-sb-url')?.value.trim() || TECNOMORA_DEFAULT_SUPABASE_URL;
+      const key = document.getElementById('cfg-sb-key')?.value.trim() || TECNOMORA_DEFAULT_SUPABASE_KEY;
+      if (!window.supabase) {
+        showToast('Error: Librería de Supabase no cargada en el navegador.', 'error');
+        return;
+      }
+      try {
+        const client = window.supabase.createClient(url, key);
+        // Test 1: Lectura
+        const { data, error: readErr } = await client.from('tecnomora_state').select('*').limit(1);
+        if (readErr) {
+          showToast('FALLÓ LECTURA SUPABASE: ' + readErr.message + '. Ejecute el script SQL de permisos.', 'error');
+          return;
+        }
+        // Test 2: Escritura
+        const { error: writeErr } = await client.from('tecnomora_state').upsert({ id: 'MAIN_SNAPSHOT', data: DB, updated_at: new Date().toISOString() });
+        if (writeErr) {
+          showToast('FALLÓ ESCRITURA SUPABASE: ' + writeErr.message + '. Falta permiso en Supabase.', 'error');
+          return;
+        }
+        supabaseClient = client;
+        updateSupabaseBadge(true);
+        showToast('¡CONEXIÓN 100% OPERATIVA! Supabase lee y escribe en tiempo real.', 'success');
+      } catch (e) {
+        showToast('ERROR DE CONEXIÓN: ' + e.message, 'error');
+      }
+    }
+
     async function testAndSaveSupabaseConfig() {
       const url = document.getElementById('cfg-sb-url')?.value.trim();
       const key = document.getElementById('cfg-sb-key')?.value.trim();
@@ -2374,16 +2439,45 @@
       showToast('Desconectado de Supabase. El sistema continúa operando localmente.', 'info');
     }
 
+    function ensureUsersHaveCredentials() {
+      if (!DB || ! Array.isArray(DB.users)) return;
+      // Remove legacy demo accounts if they lacked passwords
+      DB.users = DB.users.filter(u => !( (u.id === 'USR-03' || u.id === 'USR-04') && !u.password ));
+      const defaultCreds = {
+        'USR-01': { username: 'stiven', password: 'Stiven2026*' },
+        'USR-02': { username: 'sneider', password: 'Sneider2026*' },
+        'USR-05': { username: 'jesus', password: 'Jesus2026*' }
+      };
+      DB.users.forEach(u => {
+        if (defaultCreds[u.id]) {
+          if (!u.username) u.username = defaultCreds[u.id].username;
+          if (!u.password) u.password = defaultCreds[u.id].password;
+        } else {
+          if (!u.username) u.username = (u.email ? u.email.split('@')[0] : u.name.split(' ')[0]).toLowerCase();
+          if (!u.password) u.password = 'Tecnomora2026*';
+        }
+        if (!u.status) u.status = 'Activo';
+      });
+    }
+
     async function pullLatestStateFromSupabase() {
       if (!supabaseClient || isSyncingWithCloud) return;
       try {
-        const { data, error } = await supabaseClient.from('tecnomora_state').select('data').eq('id', 'MAIN_SNAPSHOT').single();
-        if (!error && data && data.data) {
-          isSyncingWithCloud = true;
-          DB = data.data;
-          populateBranchSelects();
-          refreshCurrentView();
-          isSyncingWithCloud = false;
+        const { data, error } = await supabaseClient.from('tecnomora_state').select('data').eq('id', 'MAIN_SNAPSHOT');
+        if (!error && Array.isArray(data)) {
+          if (data.length > 0 && data[0].data) {
+            isSyncingWithCloud = true;
+            DB = data[0].data;
+            ensureUsersHaveCredentials();
+            populateBranchSelects();
+            restoreSessionOrShowLogin();
+            refreshCurrentView();
+            isSyncingWithCloud = false;
+          } else if (data.length === 0) {
+            // La tabla en Supabase está vacía: subir estado inicial
+            ensureUsersHaveCredentials();
+            await pushStateToSupabase();
+          }
         }
       } catch (e) {
         isSyncingWithCloud = false;
@@ -2399,6 +2493,7 @@
             if (payload.new && payload.new.data && !isSyncingWithCloud) {
               isSyncingWithCloud = true;
               DB = payload.new.data;
+              ensureUsersHaveCredentials();
               populateBranchSelects();
               refreshCurrentView();
               isSyncingWithCloud = false;
@@ -2760,8 +2855,8 @@
     }
 
     function handleGlobalBranchChange(branchId) {
-      if (currentUser.role === 'ADMINISTRADOR DE SUCURSAL' && branchId !== currentUser.branchId) {
-        showToast(`Su rol de Administrador de Sucursal está asignado exclusivamente a ${getBranchName(currentUser.branchId)}.`, 'info');
+      if ((currentUser.role === 'ADMINISTRADOR DE SUCURSAL' || currentUser.role === 'VENDEDOR') && branchId !== currentUser.branchId) {
+        showToast(`Su cuenta (${currentUser.role}) está asignada exclusivamente a la sede ${getBranchName(currentUser.branchId)}.`, 'info');
         document.getElementById('global-branch-filter').value = currentUser.branchId;
         globalBranchFilter = currentUser.branchId;
       } else {
@@ -2774,21 +2869,46 @@
       refreshCurrentView();
     }
 
-    function handleQuickRoleSwitch(userId) {
-      const user = DB.users.find(u => u.id === userId);
+    function applyAuthenticatedUserSession(user, silent = false) {
       if (!user) return;
       currentUser = user;
-      document.getElementById('sidebar-user-name').textContent = user.name;
-      document.getElementById('sidebar-user-role').textContent = user.role;
+      try {
+        sessionStorage.setItem('TECNOMORA_AUTH_USER_ID', user.id);
+      } catch (e) {}
+
+      const sbName = document.getElementById('sidebar-user-name');
+      if (sbName) sbName.textContent = user.name;
+      const sbRole = document.getElementById('sidebar-user-role');
+      if (sbRole) sbRole.textContent = `${user.role} • ${getBranchName(user.branchId)}`;
+      const topBadge = document.getElementById('topbar-active-user-badge');
+      if (topBadge) topBadge.textContent = `${user.name} (${user.role})`;
       const purRegLabel = document.getElementById('pur-registered-by-label');
       if (purRegLabel) purRegLabel.textContent = user.name;
 
-      if (user.role === 'ADMINISTRADOR DE SUCURSAL') {
+      // Mostrar/ocultar botón rápido de + iPhone según rol
+      const topRegBtn = document.getElementById('topbar-btn-reg-iphone');
+      if (topRegBtn) {
+        if (user.role === 'VENDEDOR' || user.role === 'CONSULTA') {
+          topRegBtn.classList.add('!hidden');
+        } else {
+          topRegBtn.classList.remove('!hidden');
+        }
+      }
+
+      // Bloquear filtro de sede para Vendedores y Administradores de Sucursal
+      const brSelect = document.getElementById('global-branch-filter');
+      if (user.role === 'ADMINISTRADOR DE SUCURSAL' || user.role === 'VENDEDOR') {
         globalBranchFilter = user.branchId;
-        document.getElementById('global-branch-filter').value = user.branchId;
+        if (brSelect) {
+          brSelect.value = user.branchId;
+          brSelect.disabled = true;
+        }
       } else {
         globalBranchFilter = 'ALL';
-        document.getElementById('global-branch-filter').value = 'ALL';
+        if (brSelect) {
+          brSelect.disabled = false;
+          brSelect.value = 'ALL';
+        }
       }
 
       const allowed = ROLE_MODULES[user.role] || [];
@@ -2797,23 +2917,98 @@
       }
       renderSidebarNav();
       navigateTo(currentView);
-      showToast(`Sesión activa como ${user.name} (${user.role}). Permisos de backend actualizados.`, 'info');
+      closeModal('login-modal');
+      if (!silent) {
+        showToast(`Bienvenido, ${user.name} (${user.role} - ${getBranchName(user.branchId)}).`, 'success');
+      }
+    }
+
+    function restoreSessionOrShowLogin() {
+      ensureUsersHaveCredentials();
+      try {
+        const savedUserId = sessionStorage.getItem('TECNOMORA_AUTH_USER_ID');
+        if (savedUserId) {
+          const found = DB.users.find(u => u.id === savedUserId && u.status !== 'Bloqueado');
+          if (found) {
+            applyAuthenticatedUserSession(found, true);
+            return;
+          }
+        }
+      } catch (e) {}
+      openLoginModal();
+    }
+
+    function handleQuickRoleSwitch(userId) {
+      if (currentUser.role !== 'SUPERADMINISTRADOR') {
+        showToast('Solo el SUPERADMINISTRADOR puede cambiar de vista sin contraseña.', 'error');
+        return;
+      }
+      const user = DB.users.find(u => u.id === userId);
+      if (user) applyAuthenticatedUserSession(user);
+    }
+
+    function toggleLoginPasswordVisibility() {
+      const inp = document.getElementById('login-password');
+      if (!inp) return;
+      inp.type = inp.type === 'password' ? 'text' : 'password';
     }
 
     function openLoginModal() {
-      const sel = document.getElementById('login-user-select');
-      if (sel) {
-        sel.innerHTML = DB.users.map(u => `<option value="${u.id}" ${u.id === currentUser.id ? 'selected' : ''}>${u.name} — ${u.role} (${getBranchName(u.branchId)})</option>`).join('');
+      const errBox = document.getElementById('login-error-box');
+      if (errBox) {
+        errBox.classList.add('hidden');
+        errBox.textContent = '';
       }
+      const passInput = document.getElementById('login-password');
+      if (passInput) passInput.value = '';
       openModal('login-modal');
+    }
+
+    function logoutCurrentUser() {
+      try {
+        sessionStorage.removeItem('TECNOMORA_AUTH_USER_ID');
+      } catch (e) {}
+      const userInp = document.getElementById('login-username-input');
+      if (userInp) userInp.value = '';
+      const passInp = document.getElementById('login-password');
+      if (passInp) passInp.value = '';
+      openLoginModal();
+      showToast('Sesión cerrada correctamente.', 'info');
     }
 
     function handleLoginSubmit(e) {
       e.preventDefault();
-      const userId = document.getElementById('login-user-select').value;
-      document.getElementById('quick-role-switcher').value = userId;
-      handleQuickRoleSwitch(userId);
-      closeModal('login-modal');
+      ensureUsersHaveCredentials();
+      const rawUser = (document.getElementById('login-username-input')?.value || '').trim().toLowerCase();
+      const rawPass = (document.getElementById('login-password')?.value || '').trim();
+      const errBox = document.getElementById('login-error-box');
+
+      const matched = DB.users.find(u =>
+        ((u.username && u.username.toLowerCase() === rawUser) ||
+         (u.email && u.email.toLowerCase() === rawUser) ||
+         (u.name && u.name.toLowerCase() === rawUser)) &&
+        u.password === rawPass
+      );
+
+      if (!matched) {
+        if (errBox) {
+          errBox.textContent = '❌ Usuario o contraseña incorrectos. Verifique sus credenciales.';
+          errBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (matched.status === 'Bloqueado') {
+        if (errBox) {
+          errBox.textContent = '⛔ Esta cuenta de usuario se encuentra bloqueada por el Superadministrador.';
+          errBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (errBox) errBox.classList.add('hidden');
+      applyAuthenticatedUserSession(matched);
+      logAudit('LOGIN', `Inicio de sesión exitoso de ${matched.name} (${matched.role}) en ${getBranchName(matched.branchId)}.`, matched.branchId);
     }
 
     function refreshCurrentView() {
@@ -6582,48 +6777,171 @@
     // =========================================================================
 
     function renderUsersView() {
+      ensureUsersHaveCredentials();
       const tbody = document.getElementById('users-table-body');
       if (!tbody) return;
       const rolePermsDesc = {
-        'SUPERADMINISTRADOR': 'Control total 3 sedes, usuarios, auditoría, papelera, garantías y reportes consolidados',
-        'ADMINISTRADOR DE SUCURSAL': 'Gestión de equipos, compras, ventas, traslados y cierre de su sucursal asignada',
-        'VENDEDOR': 'Consulta stock disponible, registro de clientes, ventas, comprobantes PDF y sus comisiones',
-        'CONSULTA': 'Acceso estricto de solo lectura; operaciones de escritura bloqueadas en backend'
+        'SUPERADMINISTRADOR': 'Control total 3 sedes, usuarios, claves, auditoría, papelera y configuración',
+        'ADMINISTRADOR DE SUCURSAL': 'Gestión de equipos, compras, ventas, traslados y cierre de su sede asignada',
+        'VENDEDOR': 'Solo stock disponible de su sede, registro de ventas, clientes, garantías y sus comisiones',
+        'CONSULTA': 'Acceso estricto de solo lectura; sin permisos de edición ni borrado'
       };
-      tbody.innerHTML = DB.users.map(u => `
+      tbody.innerHTML = DB.users.map(u => {
+        const isActive = u.status !== 'Bloqueado';
+        return `
         <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-          <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">${u.name}<p class="text-[10px] text-slate-400">${u.email}</p></td>
+          <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">
+            ${u.name}
+            <p class="text-[10px] text-slate-400 font-normal">${u.email || ''}</p>
+          </td>
+          <td class="py-3 px-3 font-mono text-xs">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-indigo-400 font-bold">${u.username || ''}</span>
+            <p class="text-[11px] text-slate-400 mt-0.5">🔑 <span class="select-all">${u.password || ''}</span></p>
+          </td>
           <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-400 font-mono text-[10px] font-bold">${u.role}</span></td>
-          <td class="py-3 px-3">${getBranchName(u.branchId)}</td>
-          <td class="py-3 px-3 text-[11px] text-slate-400">${rolePermsDesc[u.role] || ''}</td>
-          <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 text-[10px] font-bold">${u.status}</span></td>
-          <td class="py-3 px-3 text-right">
-            <button type="button" onclick="document.getElementById('quick-role-switcher').value='${u.id}'; handleQuickRoleSwitch('${u.id}');" class="px-2.5 py-1 rounded bg-indigo-600 text-white text-[11px] font-semibold">Activar Rol</button>
+          <td class="py-3 px-3 font-semibold">${getBranchName(u.branchId)}</td>
+          <td class="py-3 px-3 text-[11px] text-slate-400 max-w-xs">${rolePermsDesc[u.role] || ''}</td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded ${isActive ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'} text-[10px] font-bold">${u.status || 'Activo'}</span>
+          </td>
+          <td class="py-3 px-3 text-right space-x-1 whitespace-nowrap">
+            <button type="button" onclick="editUserAccount('${u.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-700 dark:text-slate-200 text-[11px] font-semibold transition">Editar / Clave</button>
+            ${u.id !== 'USR-01' ? `
+              <button type="button" onclick="toggleUserAccountStatus('${u.id}')" class="px-2.5 py-1 rounded-lg ${isActive ? 'bg-amber-500/15 text-amber-400 hover:bg-amber-600 hover:text-white' : 'bg-emerald-500/15 text-emerald-400 hover:bg-emerald-600 hover:text-white'} text-[11px] font-semibold transition">${isActive ? 'Bloquear' : 'Activar'}</button>
+              <button type="button" onclick="deleteUserAccount('${u.id}')" class="px-2 py-1 rounded-lg bg-rose-500/15 text-rose-400 hover:bg-rose-600 hover:text-white text-[11px] font-semibold transition">✕</button>
+            ` : ''}
           </td>
         </tr>
-      `).join('');
+      `}).join('');
+    }
+
+    function resetUserForm() {
+      document.getElementById('user-form')?.reset();
+      document.getElementById('usr-id').value = '';
+      const t = document.getElementById('usr-form-title');
+      if (t) t.textContent = 'Crear Nuevo Usuario de Acceso';
+    }
+
+    function editUserAccount(userId) {
+      if (!requireBackendPermission('MANAGE_USERS')) return;
+      const u = DB.users.find(x => x.id === userId);
+      if (!u) return;
+      document.getElementById('usr-id').value = u.id;
+      document.getElementById('usr-name').value = u.name || '';
+      document.getElementById('usr-username').value = u.username || '';
+      document.getElementById('usr-password').value = u.password || '';
+      document.getElementById('usr-email').value = u.email || '';
+      document.getElementById('usr-role').value = u.role || 'VENDEDOR';
+      document.getElementById('usr-branch').value = u.branchId || 'SUC-01';
+      document.getElementById('usr-status').value = u.status || 'Activo';
+      const t = document.getElementById('usr-form-title');
+      if (t) t.textContent = `Editando Usuario: ${u.name}`;
+      showToast(`Cargado ${u.name} para editar clave o permisos.`, 'info');
+    }
+
+    function toggleUserAccountStatus(userId) {
+      if (!requireBackendPermission('MANAGE_USERS')) return;
+      const u = DB.users.find(x => x.id === userId);
+      if (!u || u.id === 'USR-01') return;
+      u.status = u.status === 'Bloqueado' ? 'Activo' : 'Bloqueado';
+      logAudit('USUARIO', `Cambió estado de acceso del usuario ${u.name} (${u.username}) a ${u.status}.`, u.branchId);
+      syncToIndexedDB();
+      renderUsersView();
+      showToast(`Cuenta de ${u.name} ahora está ${u.status}.`, 'info');
+    }
+
+    function deleteUserAccount(userId) {
+      if (!requireBackendPermission('MANAGE_USERS')) return;
+      const u = DB.users.find(x => x.id === userId);
+      if (!u || u.id === 'USR-01') return;
+      askConfirmation({
+        title: `¿Eliminar cuenta de acceso de ${u.name}?`,
+        description: `El usuario "${u.username}" ya no podrá iniciar sesión en el sistema.`,
+        requireReason: false,
+        onConfirm: () => {
+          DB.users = DB.users.filter(x => x.id !== userId);
+          logAudit('USUARIO', `Eliminó cuenta de acceso de ${u.name} (${u.username}).`, u.branchId);
+          syncToIndexedDB();
+          renderUsersView();
+          showToast(`Usuario ${u.name} eliminado.`, 'success');
+        }
+      });
     }
 
     function handleUserSubmit(e) {
       e.preventDefault();
       if (!requireBackendPermission('MANAGE_USERS')) return;
-      const newU = {
-        id: 'USR-0' + (DB.users.length + 1),
-        name: document.getElementById('usr-name').value.trim(),
-        email: document.getElementById('usr-email').value.trim(),
-        role: document.getElementById('usr-role').value,
-        branchId: document.getElementById('usr-branch').value,
-        status: 'Activo'
-      };
-      DB.users.push(newU);
-      const switcher = document.getElementById('quick-role-switcher');
-      if (switcher) {
-        switcher.innerHTML = DB.users.map(u => `<option value="${u.id}">Rol: ${u.role} (${u.name.split(' ')[0]})</option>`).join('');
+      ensureUsersHaveCredentials();
+
+      const id = document.getElementById('usr-id').value.trim();
+      const name = document.getElementById('usr-name').value.trim();
+      const username = document.getElementById('usr-username').value.trim().toLowerCase();
+      const password = document.getElementById('usr-password').value.trim();
+      const email = document.getElementById('usr-email').value.trim();
+      const role = document.getElementById('usr-role').value;
+      const branchId = document.getElementById('usr-branch').value;
+      const status = document.getElementById('usr-status').value || 'Activo';
+
+      // Validar que el username no esté repetido en otro usuario
+      const conflict = DB.users.find(u => u.id !== id && u.username && u.username.toLowerCase() === username);
+      if (conflict) {
+        showToast(`El nombre de usuario "${username}" ya está asignado a ${conflict.name}. Elija otro.`, 'error');
+        return;
       }
-      logAudit('USUARIO', `Creó usuario ${newU.name} con rol ${newU.role} asignado a ${getBranchName(newU.branchId)}.`, newU.branchId);
-      document.getElementById('user-form').reset();
+
+      if (id) {
+        const idx = DB.users.findIndex(u => u.id === id);
+        if (idx >= 0) {
+          DB.users[idx] = { ...DB.users[idx], name, username, password, email, role, branchId, status };
+          if (currentUser.id === id) {
+            currentUser = DB.users[idx];
+            applyAuthenticatedUserSession(currentUser, true);
+          }
+          logAudit('USUARIO', `Actualizó credenciales/permisos del usuario ${name} (${username} - ${role}).`, branchId);
+          showToast(`Usuario ${name} actualizado y sincronizado en la nube.`, 'success');
+        }
+      } else {
+        const newU = {
+          id: 'USR-' + Date.now().toString().slice(-5),
+          name,
+          username,
+          password,
+          email,
+          role,
+          branchId,
+          status
+        };
+        DB.users.push(newU);
+
+        // Si el rol es VENDEDOR y no existe aún en DB.sellers, crearlo automáticamente en Vendedores
+        if (role === 'VENDEDOR') {
+          const existsSeller = DB.sellers.some(sel => sel.name.toLowerCase() === name.toLowerCase() || (sel.email && sel.email.toLowerCase() === email.toLowerCase()));
+          if (!existsSeller) {
+            DB.sellers.push({
+              id: 'VEN-' + Date.now().toString().slice(-4),
+              name,
+              doc: username,
+              phone: '',
+              email,
+              primaryBranchId: branchId,
+              authorizedBranches: [branchId],
+              hireDate: SYSTEM_TODAY,
+              status: 'Activo',
+              commissionMode: 'PORCENTAJE_UTILIDAD',
+              commissionValue: 10,
+              notes: `Creado automáticamente desde Usuarios y Roles (${username})`
+            });
+          }
+        }
+
+        logAudit('USUARIO', `Creó usuario ${name} (login: ${username}, rol: ${role}) asignado a ${getBranchName(branchId)}.`, branchId);
+        showToast(`Usuario ${name} creado exitosamente. Ya puede iniciar sesión con "${username}".`, 'success');
+      }
+
+      syncToIndexedDB();
+      populateBranchSelects();
+      resetUserForm();
       renderUsersView();
-      showToast(`Usuario ${newU.name} creado exitosamente.`, 'success');
     }
 
     // =========================================================================
@@ -6752,13 +7070,14 @@
 
     // Inicialización al cargar
     window.addEventListener('DOMContentLoaded', () => {
-      initSupabaseFromStorage();
+      ensureUsersHaveCredentials();
       populateBranchSelects();
+      restoreSessionOrShowLogin();
       renderSidebarNav();
       refreshCurrentView();
       updateColombiaClock();
       setInterval(updateColombiaClock, 1000);
-      syncToIndexedDB();
+      initSupabaseFromStorage();
     });
   </script>
 </body>
