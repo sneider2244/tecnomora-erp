@@ -105,8 +105,8 @@
         <select id="login-user-select" class="hidden"></select>
         <div id="login-error-box" class="hidden p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-xs text-rose-400 font-semibold"></div>
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Usuario o Correo Electrónico *</label>
-          <input type="text" id="login-username-input" required placeholder="Ej: stiven, sneider, jesus o tu usuario" autocomplete="username" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Correo Electrónico *</label>
+          <input type="text" id="login-username-input" required placeholder="Tu correo creado en Supabase Auth" autocomplete="username" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" />
         </div>
         <div>
           <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Contraseña de Acceso *</label>
@@ -245,6 +245,11 @@
         <div>
           <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">Observaciones Técnicas</label>
           <textarea id="edit-dev-notes" rows="2" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-sm"></textarea>
+        </div>
+        <div class="rounded-xl border border-slate-200 dark:border-slate-700 p-3 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2"><div><p class="text-xs font-semibold">Fotos del equipo</p><p class="text-[11px] text-slate-400">Información, batería, historial de servicios y estado físico.</p></div>
+            <div class="flex items-center gap-2"><select id="edit-photo-category" class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 text-xs"><option>Foto de información</option><option>Foto de batería</option><option>Foto de historial de servicios</option><option>Frontal</option><option>Trasera</option><option>Daños</option><option>Accesorios incluidos</option></select><label class="cursor-pointer px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white">Agregar<input id="edit-photo-input" type="file" accept="image/*" multiple onchange="handleEditPhotoUpload(event)" class="hidden" /></label></div>
+          </div><div id="edit-photos-preview" class="grid grid-cols-3 sm:grid-cols-5 gap-2"></div>
         </div>
         <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
           <button type="button" onclick="closeModal('device-edit-modal')" class="px-4 py-2 rounded-xl text-sm font-medium border border-slate-300 dark:border-slate-700">Cancelar</button>
@@ -817,6 +822,9 @@
                       <option value="Detalles físicos">Ángulo: Detalles físicos</option>
                       <option value="Daños">Ángulo: Daños</option>
                       <option value="Accesorios incluidos">Ángulo: Accesorios incluidos</option>
+                      <option value="Foto de información">Foto de información</option>
+                      <option value="Foto de batería">Foto de batería</option>
+                      <option value="Foto de historial de servicios">Foto de historial de servicios (opcional)</option>
                     </select>
                     <label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white">
                       <i data-lucide="upload" class="w-3.5 h-3.5"></i> Subir Foto
@@ -1986,8 +1994,7 @@
                     <input type="text" id="usr-username" required placeholder="Ej: carlos" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-mono lowercase" />
                   </div>
                   <div>
-                    <label class="block font-semibold text-slate-500 mb-1">Contraseña / Clave *</label>
-                    <input type="text" id="usr-password" required placeholder="Clave de acceso" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 font-mono" />
+                    <p class="text-xs text-slate-500">Cree el acceso de esta persona en Supabase Authentication y use el mismo correo aquí.</p>
                   </div>
                 </div>
                 <div>
@@ -2027,7 +2034,7 @@
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <h3 class="font-bold text-sm text-slate-900 dark:text-white">Cuentas de Usuario y Credenciales de Acceso</h3>
-                  <p class="text-xs text-slate-500">Solo el SUPERADMINISTRADOR puede ver, crear o modificar claves y permisos de acceso.</p>
+                  <p class="text-xs text-slate-500">Las cuentas y contraseñas se administran en Supabase Auth. Aquí solo se asigna el rol del ERP.</p>
                 </div>
               </div>
               <div class="overflow-x-auto">
@@ -2154,7 +2161,10 @@
     // Zona Horaria: America/Bogota (UTC-5) • Fecha Base del Sistema: 2026-11-05
     // =========================================================================
 
-    const SYSTEM_TODAY = '2026-11-05';
+    function getSystemToday() {
+      return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Bogota', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+    }
+    const SYSTEM_TODAY = getSystemToday();
     const TECNOMORA_DEFAULT_SUPABASE_URL = 'https://gkxhekylsbcdonvvmbrj.supabase.co';
     const TECNOMORA_DEFAULT_SUPABASE_KEY = 'sb_publishable_MYlQ55XnowjCBBiFIU5t-Q_cuixwpuv';
     const TECNOMORA_LOGO_DATA_URI = 'data:image/jpeg;base64,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';
@@ -2282,9 +2292,9 @@
         }
       ],
       users: [
-        { id: 'USR-01', name: 'Stiven Mora', username: 'stiven', email: 'stivenmora1005162@gmail.com', password: 'Stiven2026*', role: 'SUPERADMINISTRADOR', branchId: 'SUC-01', status: 'Activo' },
-        { id: 'USR-02', name: 'Sneider Mora', username: 'sneider', email: 'jesussneider2244@gmail.com', password: 'Sneider2026*', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-02', status: 'Activo' },
-        { id: 'USR-05', name: 'Jesús Mora', username: 'jesus', email: 'lymtechnology2025@gmail.com', password: 'Jesus2026*', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-03', status: 'Activo' }
+        { id: 'USR-01', name: 'Stiven Mora', username: 'stiven', email: 'stivenmora1005162@gmail.com', role: 'SUPERADMINISTRADOR', branchId: 'SUC-01', status: 'Activo' },
+        { id: 'USR-02', name: 'Sneider Mora', username: 'sneider', email: 'jesussneider2244@gmail.com', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-02', status: 'Activo' },
+        { id: 'USR-05', name: 'Jesús Mora', username: 'jesus', email: 'lymtechnology2025@gmail.com', role: 'ADMINISTRADOR DE SUCURSAL', branchId: 'SUC-03', status: 'Activo' }
       ],
       paymentMethods: [
         { id: 'PM-01', name: 'Efectivo', category: 'Efectivo', accounts: { 'SUC-01': 'Caja Principal TECNOMORA (Calle 12 #9-11)', 'SUC-02': 'Caja TECNOMORA II (Calle 13 #10-47)', 'SUC-03': 'Caja L&M TECHNOLOGY (Calle 10 #10-61)' }, status: 'Activo' },
@@ -2324,6 +2334,7 @@
     let pendingConfirmAction = null;
     let currentInvoiceSaleId = 'VTA-2026-1001';
     let registerStagedPhotos = [];
+    let editStagedPhotos = [];
     let chartInstances = {};
 
     // Persistencia asíncrona en IndexedDB (Motor de Base de Datos del Navegador sin usar localStorage como BD principal)
@@ -2339,9 +2350,8 @@
         const savedKey = localStorage.getItem('TECNOMORA_SB_KEY') || TECNOMORA_DEFAULT_SUPABASE_KEY;
         if (savedUrl && savedKey && window.supabase) {
           supabaseClient = window.supabase.createClient(savedUrl, savedKey);
-          updateSupabaseBadge(true);
-          pullLatestStateFromSupabase();
-          listenToSupabaseRealtimeChanges();
+          updateSupabaseBadge(false);
+          restoreSessionOrShowLogin();
         }
       } catch (e) {}
     }
@@ -2350,7 +2360,7 @@
       const b = document.getElementById('supabase-status-badge');
       if (!b) return;
       if (connected) {
-        b.textContent = '● Conectado a Supabase en Vivo';
+        b.textContent = '● Conectado a Supabase';
         b.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40';
       } else {
         b.textContent = 'Sin Conectar (Modo Local)';
@@ -2366,22 +2376,18 @@
         return;
       }
       try {
-        const client = window.supabase.createClient(url, key);
-        // Test 1: Lectura
+        const client = supabaseClient || window.supabase.createClient(url, key);
+        const { data: sessionData } = await client.auth.getSession();
+        if (!sessionData?.session) { showToast('Inicie sesión con Supabase Auth antes de comprobar el acceso privado.', 'info'); return; }
+        // Prueba de lectura autenticada (sin escritura)
         const { data, error: readErr } = await client.from('tecnomora_state').select('*').limit(1);
         if (readErr) {
           showToast('FALLÓ LECTURA SUPABASE: ' + readErr.message + '. Ejecute el script SQL de permisos.', 'error');
           return;
         }
-        // Test 2: Escritura
-        const { error: writeErr } = await client.from('tecnomora_state').upsert({ id: 'MAIN_SNAPSHOT', data: DB, updated_at: new Date().toISOString() });
-        if (writeErr) {
-          showToast('FALLÓ ESCRITURA SUPABASE: ' + writeErr.message + '. Falta permiso en Supabase.', 'error');
-          return;
-        }
         supabaseClient = client;
         updateSupabaseBadge(true);
-        showToast('¡CONEXIÓN 100% OPERATIVA! Supabase lee y escribe en tiempo real.', 'success');
+        showToast('Lectura de Supabase correcta. La comprobación no modifica los datos.', 'success');
       } catch (e) {
         showToast('ERROR DE CONEXIÓN: ' + e.message, 'error');
       }
@@ -2390,41 +2396,14 @@
     async function testAndSaveSupabaseConfig() {
       const url = document.getElementById('cfg-sb-url')?.value.trim();
       const key = document.getElementById('cfg-sb-key')?.value.trim();
-      if (!url || !key) {
-        showToast('Ingrese la Project URL y la API Key anon de Supabase.', 'error');
-        return;
-      }
+      if (!url || !key || !window.supabase) { showToast('Ingrese Project URL y API Key pública de Supabase.', 'error'); return; }
       try {
-        const client = window.supabase.createClient(url, key);
-        // Intentar leer o crear el registro maestro
-        const { data, error } = await client.from('tecnomora_state').select('*').eq('id', 'MAIN_SNAPSHOT');
-        if (error) {
-          showToast('Error al conectar con Supabase: ' + error.message + '. Asegúrese de haber ejecutado el script SQL en Supabase.', 'error');
-          return;
-        }
-
-        supabaseClient = client;
-        try {
-          localStorage.setItem('TECNOMORA_SB_URL', url);
-          localStorage.setItem('TECNOMORA_SB_KEY', key);
-        } catch (e) {}
-
-        updateSupabaseBadge(true);
-
-        if (data && data.length > 0 && data[0].data) {
-          DB = data[0].data;
-          populateBranchSelects();
-          refreshCurrentView();
-          showToast('¡Conectado exitosamente! Datos de la nube sincronizados en vivo.', 'success');
-        } else {
-          // Subir snapshot actual a la nube
-          await client.from('tecnomora_state').upsert({ id: 'MAIN_SNAPSHOT', data: DB });
-          showToast('¡Conectado exitosamente! Se ha subido el estado actual de TECNOMORA ERP a Supabase.', 'success');
-        }
-        listenToSupabaseRealtimeChanges();
-      } catch (err) {
-        showToast('Fallo en la conexión: ' + err.message, 'error');
-      }
+        supabaseClient = window.supabase.createClient(url, key);
+        localStorage.setItem('TECNOMORA_SB_URL', url);
+        localStorage.setItem('TECNOMORA_SB_KEY', key);
+        updateSupabaseBadge(false);
+        showToast('Configuración guardada. Inicie sesión con una cuenta creada en Supabase Auth.', 'info');
+      } catch (err) { updateSupabaseBadge(false); showToast('No se pudo configurar Supabase: ' + err.message, 'error'); }
     }
 
     function disconnectSupabaseConfig() {
@@ -2440,47 +2419,40 @@
     }
 
     function ensureUsersHaveCredentials() {
-      if (!DB || ! Array.isArray(DB.users)) return;
-      // Remove legacy demo accounts if they lacked passwords
-      DB.users = DB.users.filter(u => !( (u.id === 'USR-03' || u.id === 'USR-04') && !u.password ));
-      const defaultCreds = {
-        'USR-01': { username: 'stiven', password: 'Stiven2026*' },
-        'USR-02': { username: 'sneider', password: 'Sneider2026*' },
-        'USR-05': { username: 'jesus', password: 'Jesus2026*' }
-      };
+      if (!DB || !Array.isArray(DB.users)) return;
+      DB.users = DB.users.filter(u => !((u.id === 'USR-03' || u.id === 'USR-04') && !u.email));
       DB.users.forEach(u => {
-        if (defaultCreds[u.id]) {
-          if (!u.username) u.username = defaultCreds[u.id].username;
-          if (!u.password) u.password = defaultCreds[u.id].password;
-        } else {
-          if (!u.username) u.username = (u.email ? u.email.split('@')[0] : u.name.split(' ')[0]).toLowerCase();
-          if (!u.password) u.password = 'Tecnomora2026*';
-        }
+        if (!u.username) u.username = (u.email ? u.email.split('@')[0] : (u.name || '').split(' ')[0]).toLowerCase();
         if (!u.status) u.status = 'Activo';
+        delete u.password;
       });
     }
 
     async function pullLatestStateFromSupabase() {
-      if (!supabaseClient || isSyncingWithCloud) return;
+      if (!supabaseClient || isSyncingWithCloud) return false;
       try {
         const { data, error } = await supabaseClient.from('tecnomora_state').select('data').eq('id', 'MAIN_SNAPSHOT');
-        if (!error && Array.isArray(data)) {
+        if (error) { updateSupabaseBadge(false); showToast('Error leyendo Supabase: ' + error.message, 'error'); return false; }
+        if (Array.isArray(data)) {
           if (data.length > 0 && data[0].data) {
             isSyncingWithCloud = true;
             DB = data[0].data;
             ensureUsersHaveCredentials();
             populateBranchSelects();
-            restoreSessionOrShowLogin();
             refreshCurrentView();
             isSyncingWithCloud = false;
-          } else if (data.length === 0) {
-            // La tabla en Supabase está vacía: subir estado inicial
-            ensureUsersHaveCredentials();
-            await pushStateToSupabase();
+            updateSupabaseBadge(true);
+            return true;
           }
+          ensureUsersHaveCredentials();
+          return await pushStateToSupabase();
         }
+        return false;
       } catch (e) {
         isSyncingWithCloud = false;
+        updateSupabaseBadge(false);
+        showToast('No fue posible leer Supabase: ' + e.message, 'error');
+        return false;
       }
     }
 
@@ -2505,10 +2477,14 @@
     }
 
     async function pushStateToSupabase() {
-      if (!supabaseClient || isSyncingWithCloud) return;
+      if (!supabaseClient || isSyncingWithCloud) return false;
       try {
-        await supabaseClient.from('tecnomora_state').upsert({ id: 'MAIN_SNAPSHOT', data: DB, updated_at: new Date().toISOString() });
-      } catch (e) {}
+        ensureUsersHaveCredentials();
+        const { error } = await supabaseClient.from('tecnomora_state').upsert({ id: 'MAIN_SNAPSHOT', data: DB, updated_at: new Date().toISOString() });
+        if (error) { updateSupabaseBadge(false); showToast('No autorizado o error guardando en Supabase: ' + error.message, 'error'); return false; }
+        updateSupabaseBadge(true);
+        return true;
+      } catch (e) { updateSupabaseBadge(false); showToast('Error guardando en Supabase: ' + e.message, 'error'); return false; }
     }
 
     function syncToIndexedDB() {
@@ -2556,7 +2532,10 @@
 
     function addMonthsToDate(dateStr, months) {
       const parts = (dateStr || SYSTEM_TODAY).split('-').map(Number);
-      const d = new Date(parts[0], (parts[1] || 1) - 1 + Number(months), parts[2] || 1);
+      const year = parts[0], month = (parts[1] || 1) - 1, day = parts[2] || 1;
+      const targetFirst = new Date(year, month + Number(months), 1);
+      const lastDay = new Date(targetFirst.getFullYear(), targetFirst.getMonth() + 1, 0).getDate();
+      const d = new Date(targetFirst.getFullYear(), targetFirst.getMonth(), Math.min(day, lastDay));
       const yyyy = d.getFullYear();
       const mm = String(d.getMonth() + 1).padStart(2, '0');
       const dd = String(d.getDate()).padStart(2, '0');
@@ -2872,9 +2851,7 @@
     function applyAuthenticatedUserSession(user, silent = false) {
       if (!user) return;
       currentUser = user;
-      try {
-        sessionStorage.setItem('TECNOMORA_AUTH_USER_ID', user.id);
-      } catch (e) {}
+      try { sessionStorage.removeItem('TECNOMORA_AUTH_USER_ID'); } catch (e) {}
 
       const sbName = document.getElementById('sidebar-user-name');
       if (sbName) sbName.textContent = user.name;
@@ -2923,19 +2900,16 @@
       }
     }
 
-    function restoreSessionOrShowLogin() {
-      ensureUsersHaveCredentials();
-      try {
-        const savedUserId = sessionStorage.getItem('TECNOMORA_AUTH_USER_ID');
-        if (savedUserId) {
-          const found = DB.users.find(u => u.id === savedUserId && u.status !== 'Bloqueado');
-          if (found) {
-            applyAuthenticatedUserSession(found, true);
-            return;
-          }
-        }
-      } catch (e) {}
-      openLoginModal();
+    async function restoreSessionOrShowLogin() {
+      if (!supabaseClient) { openLoginModal(); return; }
+      const { data, error } = await supabaseClient.auth.getSession();
+      if (error || !data?.session) { updateSupabaseBadge(false); openLoginModal(); return; }
+      if (!await pullLatestStateFromSupabase()) { await supabaseClient.auth.signOut(); openLoginModal(); return; }
+      const email = (data.session.user.email || '').toLowerCase();
+      const profile = (DB.users || []).find(u => (u.email || '').toLowerCase() === email && u.status !== 'Bloqueado');
+      if (!profile) { await supabaseClient.auth.signOut(); openLoginModal(); showToast('Esta cuenta no tiene un usuario habilitado en el ERP.', 'error'); return; }
+      applyAuthenticatedUserSession(profile, true);
+      listenToSupabaseRealtimeChanges();
     }
 
     function handleQuickRoleSwitch(userId) {
@@ -2964,10 +2938,8 @@
       openModal('login-modal');
     }
 
-    function logoutCurrentUser() {
-      try {
-        sessionStorage.removeItem('TECNOMORA_AUTH_USER_ID');
-      } catch (e) {}
+    async function logoutCurrentUser() {
+      try { sessionStorage.removeItem('TECNOMORA_AUTH_USER_ID'); if (supabaseClient) await supabaseClient.auth.signOut(); } catch (e) {}
       const userInp = document.getElementById('login-username-input');
       if (userInp) userInp.value = '';
       const passInp = document.getElementById('login-password');
@@ -2976,38 +2948,36 @@
       showToast('Sesión cerrada correctamente.', 'info');
     }
 
-    function handleLoginSubmit(e) {
+    async function handleLoginSubmit(e) {
       e.preventDefault();
-      ensureUsersHaveCredentials();
       const rawUser = (document.getElementById('login-username-input')?.value || '').trim().toLowerCase();
       const rawPass = (document.getElementById('login-password')?.value || '').trim();
       const errBox = document.getElementById('login-error-box');
-
-      const matched = DB.users.find(u =>
-        ((u.username && u.username.toLowerCase() === rawUser) ||
-         (u.email && u.email.toLowerCase() === rawUser) ||
-         (u.name && u.name.toLowerCase() === rawUser)) &&
-        u.password === rawPass
-      );
-
-      if (!matched) {
-        if (errBox) {
-          errBox.textContent = '❌ Usuario o contraseña incorrectos. Verifique sus credenciales.';
-          errBox.classList.remove('hidden');
-        }
+      const requestedUser = (DB.users || []).find(u => (u.username || '').toLowerCase() === rawUser || (u.email || '').toLowerCase() === rawUser || (u.name || '').toLowerCase() === rawUser);
+      const email = requestedUser?.email || (rawUser.includes('@') ? rawUser : '');
+      if (!supabaseClient || !email) {
+        if (errBox) { errBox.textContent = 'Conecte Supabase y use el correo electrónico de su cuenta.'; errBox.classList.remove('hidden'); }
         return;
       }
-
-      if (matched.status === 'Bloqueado') {
-        if (errBox) {
-          errBox.textContent = '⛔ Esta cuenta de usuario se encuentra bloqueada por el Superadministrador.';
-          errBox.classList.remove('hidden');
-        }
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: rawPass });
+      if (error || !data?.user) {
+        if (errBox) { errBox.textContent = 'No se pudo iniciar sesión. Revise el correo y la contraseña de Supabase Auth.'; errBox.classList.remove('hidden'); }
         return;
       }
-
+      if (!await pullLatestStateFromSupabase()) {
+        await supabaseClient.auth.signOut();
+        if (errBox) { errBox.textContent = 'Cuenta de Supabase no autorizada para TECNOMORA. Pida al administrador que la agregue a la allowlist familiar.'; errBox.classList.remove('hidden'); }
+        return;
+      }
+      const matched = (DB.users || []).find(u => (u.email || '').toLowerCase() === (data.user.email || '').toLowerCase());
+      if (!matched || matched.status === 'Bloqueado') {
+        await supabaseClient.auth.signOut();
+        if (errBox) { errBox.textContent = 'La cuenta de Supabase no está habilitada como usuario del ERP.'; errBox.classList.remove('hidden'); }
+        return;
+      }
       if (errBox) errBox.classList.add('hidden');
       applyAuthenticatedUserSession(matched);
+      listenToSupabaseRealtimeChanges();
       logAudit('LOGIN', `Inicio de sesión exitoso de ${matched.name} (${matched.role}) en ${getBranchName(matched.branchId)}.`, matched.branchId);
     }
 
@@ -3303,18 +3273,23 @@
         chartInstances[canvasId] = new Chart(el.getContext('2d'), config);
       }
 
-      const sales = getFilteredSales();
-      const novSales = sales.filter(s => (s.dateOnly || '').startsWith('2026-11')).reduce((a, s) => a + s.finalPrice, 0);
-      const novProfit = sales.filter(s => (s.dateOnly || '').startsWith('2026-11')).reduce((a, s) => a + s.profit, 0);
+      const sales = getFilteredSales().filter(s => s.paymentStatus !== 'Anulada');
+      const monthStarts = Array.from({ length: 6 }, (_, i) => {
+        const date = new Date(); date.setDate(1); date.setMonth(date.getMonth() - (5 - i));
+        return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Bogota', year: 'numeric', month: '2-digit' }).format(date);
+      });
+      const monthLabels = monthStarts.map(key => new Date(`${key}-01T12:00:00`).toLocaleDateString('es-CO', { month: 'short', year: 'numeric', timeZone: 'America/Bogota' }));
+      const monthSales = monthStarts.map(key => sales.filter(s => (s.dateOnly || '').startsWith(key)).reduce((sum, s) => sum + (Number(s.finalPrice) || 0), 0));
+      const monthProfit = monthStarts.map(key => sales.filter(s => (s.dateOnly || '').startsWith(key)).reduce((sum, s) => sum + (Number(s.profit) || 0), 0));
 
       // 1. Ventas por Mes
       mountChart('chart-sales-month', {
         type: 'bar',
         data: {
-          labels: ['Jun 2026', 'Jul 2026', 'Ago 2026', 'Sep 2026', 'Oct 2026', 'Nov 2026'],
+          labels: monthLabels,
           datasets: [{
             label: 'Ventas (COP)',
-            data: [18500000, 22400000, 26100000, 29800000, 34200000, novSales],
+            data: monthSales,
             backgroundColor: '#6366f1',
             borderRadius: 6
           }]
@@ -3326,10 +3301,10 @@
       mountChart('chart-profit-month', {
         type: 'line',
         data: {
-          labels: ['Jun 2026', 'Jul 2026', 'Ago 2026', 'Sep 2026', 'Oct 2026', 'Nov 2026'],
+          labels: monthLabels,
           datasets: [{
             label: 'Ganancia Bruta (COP)',
-            data: [3100000, 3850000, 4420000, 5100000, 5950000, novProfit],
+            data: monthProfit,
             borderColor: '#10b981',
             backgroundColor: 'rgba(16, 185, 129, 0.15)',
             fill: true,
@@ -3693,7 +3668,26 @@
       document.getElementById('edit-dev-physical').value = d.physicalState;
       document.getElementById('edit-dev-functional').value = d.functionalState;
       document.getElementById('edit-dev-notes').value = d.notes || '';
+      editStagedPhotos = (d.photos || []).map(ph => ({ ...ph }));
+      renderEditPhotosPreview();
       openModal('device-edit-modal');
+    }
+
+    function renderEditPhotosPreview() {
+      const wrap = document.getElementById('edit-photos-preview');
+      if (!wrap) return;
+      wrap.innerHTML = editStagedPhotos.map((ph, idx) => `<div class="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700"><img src="${ph.url}" alt="${ph.angle}" class="w-full h-16 object-cover"><span class="block truncate px-1 py-1 text-[9px]">${ph.angle}</span><button type="button" onclick="removeEditPhoto(${idx})" class="absolute top-1 right-1 rounded-full bg-rose-600 text-white w-5 h-5 text-xs">×</button></div>`).join('');
+    }
+    function removeEditPhoto(index) { editStagedPhotos.splice(index, 1); renderEditPhotosPreview(); }
+    function handleEditPhotoUpload(e) {
+      const category = document.getElementById('edit-photo-category')?.value || 'Foto de información';
+      Array.from(e.target.files || []).forEach(file => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = ev => { editStagedPhotos.push({ id: 'PH-' + Date.now() + Math.random().toString(16).slice(2), angle: category, url: ev.target.result, createdAt: getSystemToday() }); renderEditPhotosPreview(); };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
     }
 
     function handleEditDeviceSubmit(e) {
@@ -3719,6 +3713,7 @@
       d.physicalState = document.getElementById('edit-dev-physical').value.trim();
       d.functionalState = document.getElementById('edit-dev-functional').value.trim();
       d.notes = document.getElementById('edit-dev-notes').value.trim();
+      d.photos = editStagedPhotos.map(ph => ({ ...ph }));
 
       if (d.repairExpenses > 0 && !d.repairDate) d.repairDate = SYSTEM_TODAY;
       if (d.status === 'Reservado' && !d.reserveDate) d.reserveDate = SYSTEM_TODAY;
@@ -4115,9 +4110,28 @@
           </div>
           ${idx > 1 ? `<button type="button" onclick="this.closest('.purchase-unit-row').remove(); recalcPurchaseTotal();" class="p-1.5 rounded-lg bg-rose-500/15 text-rose-400 hover:bg-rose-600 hover:text-white mt-3">✕</button>` : ''}
         </div>
+        <div class="sm:col-span-2 lg:col-span-7 flex flex-wrap items-center gap-2"><span class="pur-u-photo-count text-[10px] text-slate-400">Fotos: opcionales</span><select class="pur-u-photo-category rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 text-[10px]"><option>Foto de información</option><option>Foto de batería</option><option>Foto de historial de servicios</option><option>Estado físico</option></select><label class="cursor-pointer rounded-lg border border-slate-300 dark:border-slate-700 px-2 py-1 text-[10px]">Adjuntar fotos<input type="file" accept="image/*" multiple onchange="handlePurchasePhotoUpload(event)" class="hidden"></label></div>
       `;
       container.appendChild(row);
       recalcPurchaseTotal();
+    }
+
+    function handlePurchasePhotoUpload(e) {
+      const row = e.target.closest('.purchase-unit-row');
+      if (!row) return;
+      const category = row.querySelector('.pur-u-photo-category')?.value || 'Foto de información';
+      const files = Array.from(e.target.files || []).filter(file => file.type.startsWith('image/'));
+      row._stagedPhotos = row._stagedPhotos || [];
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = ev => {
+          row._stagedPhotos.push({ id: 'PH-' + Date.now() + Math.random().toString(16).slice(2), angle: category, url: ev.target.result, createdAt: getSystemToday() });
+          const count = row.querySelector('.pur-u-photo-count');
+          if (count) count.textContent = `Fotos: ${row._stagedPhotos.length}`;
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
     }
 
     function recalcPurchaseTotal() {
@@ -4185,7 +4199,7 @@
           physicalState: cond === 'Nuevo' ? '10/10 Impecable (Como nuevo)' : '9.5/10 Excelente estado',
           functionalState: '100% Operativo (FaceID, TrueTone, Cámaras OK)',
           notes: `Ingresado mediante orden de compra ${purId}. ${notes}`,
-          photos: generateDefaultPhotos(model, color),
+          photos: r._stagedPhotos?.length ? r._stagedPhotos.map(ph => ({ ...ph })) : generateDefaultPhotos(model, color),
           purchaseId: purId,
           purchaseDate: purDate,
           entryDate: recDate,
@@ -5160,7 +5174,7 @@
         ],
         [[
           `Cliente: ${cust.name}\nDocumento: ${cust.docType} ${cust.docNum}\nTeléfono / WhatsApp: ${cust.phone}\nDirección: ${cust.address || 'San Gil'} (${cust.city || 'San Gil'})`,
-          `Sucursal: ${branch.name} (${branch.code})\nVendedor Responsable: ${getSellerName(s.sellerId)}\nAutorizado por: ${s.authorizedBy}\nPre-registro DIAN: CUFE-TM-${s.id.replace(/[^0-9]/g, '')}9981A`
+          `Sucursal: ${branch.name} (${branch.code})\nVendedor Responsable: ${getSellerName(s.sellerId)}\nAutorizado por: ${s.authorizedBy}\nDocumento interno; CUFE pendiente de proveedor autorizado.`
         ]]
       );
 
@@ -6781,7 +6795,7 @@
       const tbody = document.getElementById('users-table-body');
       if (!tbody) return;
       const rolePermsDesc = {
-        'SUPERADMINISTRADOR': 'Control total 3 sedes, usuarios, claves, auditoría, papelera y configuración',
+        'SUPERADMINISTRADOR': 'Control total 3 sedes, usuarios, auditoría, papelera y configuración',
         'ADMINISTRADOR DE SUCURSAL': 'Gestión de equipos, compras, ventas, traslados y cierre de su sede asignada',
         'VENDEDOR': 'Solo stock disponible de su sede, registro de ventas, clientes, garantías y sus comisiones',
         'CONSULTA': 'Acceso estricto de solo lectura; sin permisos de edición ni borrado'
@@ -6796,7 +6810,7 @@
           </td>
           <td class="py-3 px-3 font-mono text-xs">
             <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-indigo-400 font-bold">${u.username || ''}</span>
-            <p class="text-[11px] text-slate-400 mt-0.5">🔑 <span class="select-all">${u.password || ''}</span></p>
+            <p class="text-[11px] text-slate-400 mt-0.5">🔐 Acceso administrado por Supabase Auth</p>
           </td>
           <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-400 font-mono text-[10px] font-bold">${u.role}</span></td>
           <td class="py-3 px-3 font-semibold">${getBranchName(u.branchId)}</td>
@@ -6805,7 +6819,7 @@
             <span class="px-2 py-0.5 rounded ${isActive ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'} text-[10px] font-bold">${u.status || 'Activo'}</span>
           </td>
           <td class="py-3 px-3 text-right space-x-1 whitespace-nowrap">
-            <button type="button" onclick="editUserAccount('${u.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-700 dark:text-slate-200 text-[11px] font-semibold transition">Editar / Clave</button>
+            <button type="button" onclick="editUserAccount('${u.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white text-slate-700 dark:text-slate-200 text-[11px] font-semibold transition">Editar perfil ERP</button>
             ${u.id !== 'USR-01' ? `
               <button type="button" onclick="toggleUserAccountStatus('${u.id}')" class="px-2.5 py-1 rounded-lg ${isActive ? 'bg-amber-500/15 text-amber-400 hover:bg-amber-600 hover:text-white' : 'bg-emerald-500/15 text-emerald-400 hover:bg-emerald-600 hover:text-white'} text-[11px] font-semibold transition">${isActive ? 'Bloquear' : 'Activar'}</button>
               <button type="button" onclick="deleteUserAccount('${u.id}')" class="px-2 py-1 rounded-lg bg-rose-500/15 text-rose-400 hover:bg-rose-600 hover:text-white text-[11px] font-semibold transition">✕</button>
@@ -6829,14 +6843,13 @@
       document.getElementById('usr-id').value = u.id;
       document.getElementById('usr-name').value = u.name || '';
       document.getElementById('usr-username').value = u.username || '';
-      document.getElementById('usr-password').value = u.password || '';
       document.getElementById('usr-email').value = u.email || '';
       document.getElementById('usr-role').value = u.role || 'VENDEDOR';
       document.getElementById('usr-branch').value = u.branchId || 'SUC-01';
       document.getElementById('usr-status').value = u.status || 'Activo';
       const t = document.getElementById('usr-form-title');
       if (t) t.textContent = `Editando Usuario: ${u.name}`;
-      showToast(`Cargado ${u.name} para editar clave o permisos.`, 'info');
+      showToast(`Cargado ${u.name} para editar sus permisos del ERP.`, 'info');
     }
 
     function toggleUserAccountStatus(userId) {
@@ -6876,7 +6889,6 @@
       const id = document.getElementById('usr-id').value.trim();
       const name = document.getElementById('usr-name').value.trim();
       const username = document.getElementById('usr-username').value.trim().toLowerCase();
-      const password = document.getElementById('usr-password').value.trim();
       const email = document.getElementById('usr-email').value.trim();
       const role = document.getElementById('usr-role').value;
       const branchId = document.getElementById('usr-branch').value;
@@ -6892,7 +6904,7 @@
       if (id) {
         const idx = DB.users.findIndex(u => u.id === id);
         if (idx >= 0) {
-          DB.users[idx] = { ...DB.users[idx], name, username, password, email, role, branchId, status };
+          DB.users[idx] = { ...DB.users[idx], name, username, email, role, branchId, status };
           if (currentUser.id === id) {
             currentUser = DB.users[idx];
             applyAuthenticatedUserSession(currentUser, true);
@@ -6905,7 +6917,6 @@
           id: 'USR-' + Date.now().toString().slice(-5),
           name,
           username,
-          password,
           email,
           role,
           branchId,
@@ -6935,7 +6946,7 @@
         }
 
         logAudit('USUARIO', `Creó usuario ${name} (login: ${username}, rol: ${role}) asignado a ${getBranchName(branchId)}.`, branchId);
-        showToast(`Usuario ${name} creado exitosamente. Ya puede iniciar sesión con "${username}".`, 'success');
+        showToast(`Usuario ${name} creado exitosamente. Debe usar el correo que registró en Supabase Auth para iniciar sesión.`, 'success');
       }
 
       syncToIndexedDB();
@@ -7072,7 +7083,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       ensureUsersHaveCredentials();
       populateBranchSelects();
-      restoreSessionOrShowLogin();
+      openLoginModal();
       renderSidebarNav();
       refreshCurrentView();
       updateColombiaClock();
