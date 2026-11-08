@@ -2428,6 +2428,39 @@
       });
     }
 
+    // Cada compra debe tener un único egreso enlazado para que aparezca en caja y reportes.
+    // La misma función completa compras antiguas sin eliminar ni alterar sus registros.
+    function ensurePurchaseCashMovements() {
+      if (!DB || !Array.isArray(DB.purchases)) return false;
+      if (!Array.isArray(DB.cashMovements)) DB.cashMovements = [];
+      let added = false;
+      DB.purchases.forEach(purchase => {
+        const amount = Number(purchase.totalAmount) || 0;
+        if (!purchase.id || amount <= 0 || !purchase.paymentMethodId) return;
+        const exists = DB.cashMovements.some(m =>
+          m.sourcePurchaseId === purchase.id ||
+          m.id === `MOV-COMPRA-${purchase.id}` ||
+          (m.type === 'EGRESO' && (m.description || '').includes(`Compra ${purchase.id}`))
+        );
+        if (exists) return;
+        DB.cashMovements.unshift({
+          id: `MOV-COMPRA-${purchase.id}`,
+          sourcePurchaseId: purchase.id,
+          type: 'EGRESO',
+          category: 'Compra de inventario',
+          amount,
+          methodId: purchase.paymentMethodId,
+          branchId: purchase.branchId,
+          date: purchase.purchaseDate || getSystemToday(),
+          responsible: purchase.buyerName || purchase.registeredBy || 'Sistema',
+          description: `Compra ${purchase.id} · ${purchase.unitsCount || 0} equipo(s) · ${getSupplierName(purchase.supplierId)}`,
+          supportRef: purchase.supportRef || 'S/N'
+        });
+        added = true;
+      });
+      return added;
+    }
+
     async function pullLatestStateFromSupabase() {
       if (!supabaseClient || isSyncingWithCloud) return false;
       try {
@@ -2438,9 +2471,11 @@
             isSyncingWithCloud = true;
             DB = data[0].data;
             ensureUsersHaveCredentials();
+            const purchaseExpensesAdded = ensurePurchaseCashMovements();
             populateBranchSelects();
             refreshCurrentView();
             isSyncingWithCloud = false;
+            if (purchaseExpensesAdded) syncToIndexedDB();
             updateSupabaseBadge(true);
             return true;
           }
@@ -2466,9 +2501,11 @@
               isSyncingWithCloud = true;
               DB = payload.new.data;
               ensureUsersHaveCredentials();
+              const purchaseExpensesAdded = ensurePurchaseCashMovements();
               populateBranchSelects();
               refreshCurrentView();
               isSyncingWithCloud = false;
+              if (purchaseExpensesAdded) syncToIndexedDB();
               showToast('Datos actualizados en tiempo real desde otra sede.', 'info');
             }
           })
@@ -4242,7 +4279,8 @@
         unitsCount: rows.length
       });
 
-      logAudit('COMPRA', `Registró compra ${purId} (${rows.length} iPhones) al proveedor ${getSupplierName(supplierId)} por ${formatCOP(totalAmount)} en ${getBranchName(branchId)}. Compró: ${buyer}, Registró: ${currentUser.name}.`, branchId);
+      ensurePurchaseCashMovements();
+      logAudit('COMPRA', `Registró compra ${purId} (${rows.length} iPhones) al proveedor ${getSupplierName(supplierId)} por ${formatCOP(totalAmount)} en ${getBranchName(branchId)}. Egreso automático generado. Compró: ${buyer}, Registró: ${currentUser.name}.`, branchId);
 
       document.getElementById('purchase-items-container').innerHTML = '';
       addPurchaseItemRow();
@@ -6636,7 +6674,7 @@
       if (!catSel) return;
       const cats = type === 'INGRESO'
         ? ['Abonos de clientes', 'Otros ingresos']
-        : ['Transporte', 'Reparaciones', 'Accesorios', 'Gastos operativos', 'Devoluciones', 'Otros gastos'];
+        : ['Compra de inventario', 'Transporte', 'Reparaciones', 'Accesorios', 'Gastos operativos', 'Devoluciones', 'Otros gastos'];
       catSel.innerHTML = cats.map(c => `<option value="${c}">${c}</option>`).join('');
     }
 
